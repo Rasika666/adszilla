@@ -7,6 +7,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 @SpringBootApplication(scanBasePackages = "com.adszilla")
 public class AdsZillaServer {
 	public static void main(String[] args) {
-		SpringApplication.run(AdsZillaServer.class, args)
+		SpringApplication.run(AdsZillaServer.class, args);
 	}
 }

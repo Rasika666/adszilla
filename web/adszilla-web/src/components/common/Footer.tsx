@@ -14,7 +14,7 @@ const Footer = () => {
                   <div className="footer-rows-left">
                     <div className="footer-row">
                       <div className="footer-row-inner footer-logo">
-                        <img src="images/logo2.png" alt="" />
+                        <img src="images/logo2.png" alt=""/>
                       </div>
                     </div>
                   </div>
@@ -128,7 +128,7 @@ const Footer = () => {
                 <h3><i className="icon-feather-mail"></i> Sign Up For a Newsletter</h3>
                 <p>Weekly breaking news, analysis and cutting edge advices on job searching.</p>
                 <form action="#" method="get" className="newsletter">
-                  <input type="text" name="fname" placeholder="Enter your email address" />
+                  <input type="text" name="fname" placeholder="Enter your email address"/>
                   <button type="submit"><i className="icon-feather-arrow-right"></i></button>
                 </form>
               </div>
