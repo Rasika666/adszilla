@@ -1,39 +1,47 @@
-import React, {FC, useEffect} from 'react';
-import 'bs-stepper/dist/css/bs-stepper.min.css';
+import React, {FC} from 'react';
+import {Step, StepLabel, Stepper as MuiStepper, Typography} from "@mui/material";
 
-const Stepper: FC = () => {
+export interface StepperParam {
+  skipped: Set<number>;
+  activeStep: number;
+  isStepOptional: (step: number) => boolean;
+  isStepSkipped: (step: number) => boolean;
+  steps: string[]
+};
 
-  useEffect(() => {
 
-
-  }, [])
+const Stepper: FC<StepperParam> = ({
+                                     skipped,
+                                     activeStep,
+                                     isStepOptional,
+                                     isStepSkipped,
+                                     steps,
+                                   }) => {
 
 
   return (
-      <div id="ads-creation-stepper" className="bs-stepper">
-        <div className="bs-stepper-header">
-          <div className="step" data-target="#test-l-1">
-            <button className="step-trigger">
-              <span className="bs-stepper-circle">1</span>
-              <span className="bs-stepper-label">Email</span>
-            </button>
-          </div>
-          <div className="line"></div>
-          <div className="step" data-target="#test-l-2">
-            <button className="step-trigger">
-              <span className="bs-stepper-circle">2</span>
-              <span className="bs-stepper-label">Password</span>
-            </button>
-          </div>
-          <div className="line"></div>
-          <div className="step" data-target="#test-l-3">
-            <button className="step-trigger">
-              <span className="bs-stepper-circle">3</span>
-              <span className="bs-stepper-label">Validate</span>
-            </button>
-          </div>
-        </div>
-      </div>
+      <MuiStepper activeStep={activeStep}>
+
+        {steps.map((label, index) => {
+          const stepProps: { completed?: boolean } = {};
+          const labelProps: {
+            optional?: React.ReactNode;
+          } = {};
+          if (isStepOptional(index)) {
+            labelProps.optional = (
+                <Typography variant="caption">Optional</Typography>
+            );
+          }
+          if (isStepSkipped(index)) {
+            stepProps.completed = false;
+          }
+          return (
+              <Step key={label} {...stepProps}>
+                <StepLabel {...labelProps}>{label}</StepLabel>
+              </Step>
+          );
+        })}
+      </MuiStepper>
   );
 };
 

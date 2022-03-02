@@ -1,13 +1,16 @@
 import React, {useState} from 'react';
-import HeaderV2 from "../../../components/common/HeaderV2";
-import SimpleFooter from "../../../components/common/SimpleFooter";
-import ProfileSideBar from "../../../components/common/ProfileSideBar";
 import AdsOverview from "./ads-creation-pages/AdsOverview";
-import {Box, Button, Step, StepLabel, Stepper, Typography} from "@mui/material";
+import Stepper from "../../../components/common/Stepper"
 import ProfileWrapper from "../../../components/layouts/ProfileWrapper";
+import AdsMarketingChannel from "./ads-creation-pages/AdsMarketingChannel";
+import AdsContent from "./ads-creation-pages/AdsContent";
+import AdsTargetArea from "./ads-creation-pages/AdsTargetArea";
+import AdsBudget from "./ads-creation-pages/AdsBudget";
+import AdsPublish from "./ads-creation-pages/AdsPublish";
+import AdsCreationFinish from "./ads-creation-pages/AdsCreationFinish";
 
 
-const steps = ['Select campaign settings', 'Create an ad group', 'Create an ad'];
+const steps = ['Overview', 'Marketing Channel', 'Target Area', 'Content', 'Budget', 'Publish'];
 
 const AdsCreation = () => {
 
@@ -16,7 +19,7 @@ const AdsCreation = () => {
   const [skipped, setSkipped] = useState(new Set<number>());
 
   const isStepOptional = (step: number) => {
-    return step === 1;
+    return false;
   };
 
   const isStepSkipped = (step: number) => {
@@ -58,90 +61,67 @@ const AdsCreation = () => {
   };
 
 
-
-
   return (
       <ProfileWrapper>
 
         <div className="col-xl-12">
 
-          <Box sx={{ width: '100%' }}>
-            <Stepper activeStep={activeStep}>
+            <Stepper activeStep={activeStep}
+                     skipped={skipped}
+                     isStepSkipped={isStepSkipped}
+                     isStepOptional={isStepOptional}
+                     steps={steps}/>
 
-              {steps.map((label, index) => {
-                const stepProps: { completed?: boolean } = {};
-                const labelProps: {
-                  optional?: React.ReactNode;
-                } = {};
-                if (isStepOptional(index)) {
-                  labelProps.optional = (
-                      <Typography variant="caption">Optional</Typography>
-                  );
-                }
-                if (isStepSkipped(index)) {
-                  stepProps.completed = false;
-                }
-                return (
-                    <Step key={label} {...stepProps}>
-                      <StepLabel {...labelProps}>{label}</StepLabel>
-                    </Step>
-                );
-              })}
-            </Stepper>
 
             {activeStep === steps.length ? (
-                <React.Fragment>
-                  <Typography sx={{ mt: 2, mb: 1 }}>
-                    All steps completed - you&apos;re finished
-                  </Typography>
-                  <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-                    <Box sx={{ flex: '1 1 auto' }} />
-                    <Button onClick={handleReset}>Reset</Button>
-                  </Box>
-                </React.Fragment>
+                <>
+                  <AdsCreationFinish />
+                </>
             ) : (
-                <React.Fragment>
-                  <Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography>
-                  <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-                    <Button
-                        color="inherit"
-                        disabled={activeStep === 0}
-                        onClick={handleBack}
-                        sx={{ mr: 1 }}
-                    >
-                      Back
-                    </Button>
-                    <Box sx={{ flex: '1 1 auto' }} />
-                    {isStepOptional(activeStep) && (
-                        <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
-                          Skip
-                        </Button>
-                    )}
-                    <Button onClick={handleNext}>
-                      {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-                    </Button>
-                  </Box>
-                </React.Fragment>
+                <>
+                  {activeStep === 0 && <AdsOverview/>}
+                  {activeStep === 1 && <AdsMarketingChannel/>}
+                  {activeStep === 2 && <AdsTargetArea/>}
+                  {activeStep === 3 && <AdsContent/>}
+                  {activeStep === 4 && <AdsBudget/>}
+                  {activeStep === 5 && <AdsPublish/>}
+                </>
             )}
-          </Box>
-
-          <AdsOverview />
-
         </div>
 
-        <div className="col-xl-12">
+        <div className="col-xl-12 d-flex justify-content-between">
 
-          <a href="#" className="button ripple-effect big margin-top-30"><i
-              className="icon-feather-plus"></i> Post a Job</a>
+          {activeStep === 0 ? (
+              <button className="button gray" disabled={activeStep === 0} onClick={handleBack}>
+                Back
+              </button>
+          ) : (
+              <button className="button blue ripple-effect button-sliding-icon" onClick={handleBack}>
+                <i className="icon-feather-arrow-left"></i>
+                Back
+              </button>
+          )}
+
+          {activeStep >= steps.length  ? (
+              <button className="button blue" onClick={handleReset}>
+                Reset
+              </button>
+          ) : (
+              <button className="button blue ripple-effect button-sliding-icon" onClick={handleNext}>
+                {activeStep === steps.length - 1 ? (
+                    <>
+                      Finish
+                    </>
+                ) : (
+                    <>
+                      Next
+                      <i className="icon-feather-arrow-right"></i>
+                    </>)}
+              </button>
+          )}
+
         </div>
-
-
-
       </ProfileWrapper>
-
-
-
-
 
 
   );
