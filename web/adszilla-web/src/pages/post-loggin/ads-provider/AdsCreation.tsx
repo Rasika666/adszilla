@@ -4,6 +4,7 @@ import SimpleFooter from "../../../components/common/SimpleFooter";
 import ProfileSideBar from "../../../components/common/ProfileSideBar";
 import AdsOverview from "./ads-creation-pages/AdsOverview";
 import {Box, Button, Step, StepLabel, Stepper, Typography} from "@mui/material";
+import ProfileWrapper from "../../../components/layouts/ProfileWrapper";
 
 
 const steps = ['Select campaign settings', 'Create an ad group', 'Create an ad'];
@@ -60,114 +61,89 @@ const AdsCreation = () => {
 
 
   return (
-      <div id="wrapper">
-        <HeaderV2/>
+      <ProfileWrapper>
 
-        <div className="clearfix"></div>
+        <div className="col-xl-12">
 
-        <div className="dashboard-container">
+          <Box sx={{ width: '100%' }}>
+            <Stepper activeStep={activeStep}>
 
-          <ProfileSideBar />
+              {steps.map((label, index) => {
+                const stepProps: { completed?: boolean } = {};
+                const labelProps: {
+                  optional?: React.ReactNode;
+                } = {};
+                if (isStepOptional(index)) {
+                  labelProps.optional = (
+                      <Typography variant="caption">Optional</Typography>
+                  );
+                }
+                if (isStepSkipped(index)) {
+                  stepProps.completed = false;
+                }
+                return (
+                    <Step key={label} {...stepProps}>
+                      <StepLabel {...labelProps}>{label}</StepLabel>
+                    </Step>
+                );
+              })}
+            </Stepper>
 
-          <div className="dashboard-content-container" data-simplebar>
-
-            <div className="dashboard-content-inner">
-
-
-
-
-
-
-
-
-              <div className="row">
-
-                <div className="col-xl-12">
-
-
-                  <Box sx={{ width: '100%' }}>
-                    <Stepper activeStep={activeStep}>
-
-                      {steps.map((label, index) => {
-                        const stepProps: { completed?: boolean } = {};
-                        const labelProps: {
-                          optional?: React.ReactNode;
-                        } = {};
-                        if (isStepOptional(index)) {
-                          labelProps.optional = (
-                              <Typography variant="caption">Optional</Typography>
-                          );
-                        }
-                        if (isStepSkipped(index)) {
-                          stepProps.completed = false;
-                        }
-                        return (
-                            <Step key={label} {...stepProps}>
-                              <StepLabel {...labelProps}>{label}</StepLabel>
-                            </Step>
-                        );
-                      })}
-                    </Stepper>
-
-                    {activeStep === steps.length ? (
-                        <React.Fragment>
-                          <Typography sx={{ mt: 2, mb: 1 }}>
-                            All steps completed - you&apos;re finished
-                          </Typography>
-                          <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-                            <Box sx={{ flex: '1 1 auto' }} />
-                            <Button onClick={handleReset}>Reset</Button>
-                          </Box>
-                        </React.Fragment>
-                    ) : (
-                        <React.Fragment>
-                          <Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography>
-                          <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-                            <Button
-                                color="inherit"
-                                disabled={activeStep === 0}
-                                onClick={handleBack}
-                                sx={{ mr: 1 }}
-                            >
-                              Back
-                            </Button>
-                            <Box sx={{ flex: '1 1 auto' }} />
-                            {isStepOptional(activeStep) && (
-                                <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
-                                  Skip
-                                </Button>
-                            )}
-                            <Button onClick={handleNext}>
-                              {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-                            </Button>
-                          </Box>
-                        </React.Fragment>
-                    )}
+            {activeStep === steps.length ? (
+                <React.Fragment>
+                  <Typography sx={{ mt: 2, mb: 1 }}>
+                    All steps completed - you&apos;re finished
+                  </Typography>
+                  <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
+                    <Box sx={{ flex: '1 1 auto' }} />
+                    <Button onClick={handleReset}>Reset</Button>
                   </Box>
+                </React.Fragment>
+            ) : (
+                <React.Fragment>
+                  <Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography>
+                  <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
+                    <Button
+                        color="inherit"
+                        disabled={activeStep === 0}
+                        onClick={handleBack}
+                        sx={{ mr: 1 }}
+                    >
+                      Back
+                    </Button>
+                    <Box sx={{ flex: '1 1 auto' }} />
+                    {isStepOptional(activeStep) && (
+                        <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
+                          Skip
+                        </Button>
+                    )}
+                    <Button onClick={handleNext}>
+                      {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                    </Button>
+                  </Box>
+                </React.Fragment>
+            )}
+          </Box>
 
-
-
-                  <AdsOverview />
-                </div>
-
-                <div className="col-xl-12">
-                  <a href="#" className="button ripple-effect big margin-top-30"><i
-                      className="icon-feather-plus"></i> Post a Job</a>
-                </div>
-
-              </div>
-
-              <div className="dashboard-footer-spacer"></div>
-
-              <SimpleFooter />
-
-            </div>
-          </div>
+          <AdsOverview />
 
         </div>
 
+        <div className="col-xl-12">
 
-      </div>
+          <a href="#" className="button ripple-effect big margin-top-30"><i
+              className="icon-feather-plus"></i> Post a Job</a>
+        </div>
+
+
+
+      </ProfileWrapper>
+
+
+
+
+
+
   );
 };
 

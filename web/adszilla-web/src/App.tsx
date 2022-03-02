@@ -2,6 +2,8 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import TestMe from "./pages/post-loggin/TestMe";
 import DashboardV2 from "./pages/post-loggin/ads-buyer/DashboardV2";
 import AdsCreation from "./pages/post-loggin/ads-provider/AdsCreation";
+import MyAdDashboard from "./pages/post-loggin/ads-provider/MyAdDashboard";
+import AdsProposal from "./pages/post-loggin/ads-provider/AdsProposal";
 
 function App() {
   return (
@@ -9,7 +11,9 @@ function App() {
         <Routes>
           <Route path={'/'} element={<TestMe/>}/>
           <Route path={'/dashboard2'} element={<DashboardV2/>}/>
-          <Route path={'/adscreation'} element={<AdsCreation/>}/>
+          <Route path={'/ads-creation'} element={<AdsCreation/>}/>
+          <Route path={'/my-ads'} element={<MyAdDashboard/>}/>
+          <Route path={'/view-proposal'} element={<AdsProposal/>}/>
         </Routes>
       </BrowserRouter>
   );
