@@ -2,7 +2,7 @@ import React from 'react';
 
 const AdsV2 = () => {
   return (
-      <a href="single-job-page.html" className="job-listing">
+      <a href="adDetails" className="job-listing">
 
 
         <div className="job-listing-details">

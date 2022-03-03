@@ -13,7 +13,7 @@ const DashboardV2 = () => {
 
         <div className="full-page-content-container" data-simplebar>
           <div className="full-page-content-inner">
-
+            <h3 className="page-title">Search Results</h3>
             <div className="listings-container grid-layout margin-top-35">
               <AdsV2/>
 
