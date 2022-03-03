@@ -1,4 +1,5 @@
 import React from 'react';
+import {Checkbox, FormControlLabel} from "@mui/material";
 
 const AdsMarketingChannel = () => {
   return (
@@ -15,28 +16,16 @@ const AdsMarketingChannel = () => {
               <div className="row">
 
                 <div className="col-xl-4">
-                  <div className="checkbox">
-                    <input type="checkbox" id="youtube"/>
-                    <label htmlFor="youtube"><span className="checkbox-icon"></span> Youtube Channel</label>
-                  </div>
+                  <FormControlLabel control={<Checkbox/>} label=" Youtube Channel"/>
                 </div>
                 <div className="col-xl-4">
-                  <div className="checkbox">
-                    <input type="checkbox" id="facebook"/>
-                    <label htmlFor="facebook"><span className="checkbox-icon"></span> facebook Pages</label>
-                  </div>
+                  <FormControlLabel control={<Checkbox/>} label=" facebook Pages"/>
                 </div>
                 <div className="col-xl-4">
-                  <div className="checkbox">
-                    <input type="checkbox" id="Instagram"/>
-                    <label htmlFor="Instagram"><span className="checkbox-icon"></span> Instagram page</label>
-                  </div>
+                  <FormControlLabel control={<Checkbox/>} label=" Instagram page"/>
                 </div>
                 <div className="col-xl-4">
-                  <div className="checkbox">
-                    <input type="checkbox" id="Twitter"/>
-                    <label htmlFor="Twitter"><span className="checkbox-icon"></span> Twitter page</label>
-                  </div>
+                  <FormControlLabel control={<Checkbox/>} label=" Twitter page"/>
                 </div>
 
               </div>
@@ -57,22 +46,13 @@ const AdsMarketingChannel = () => {
               <div className="row">
 
                 <div className="col-xl-4">
-                  <div className="checkbox">
-                    <input type="checkbox" id="Gossip"/>
-                    <label htmlFor="Gossip"><span className="checkbox-icon"></span> Gossip Site</label>
-                  </div>
+                  <FormControlLabel control={<Checkbox/>} label=" Gossip Site"/>
                 </div>
                 <div className="col-xl-4">
-                  <div className="checkbox">
-                    <input type="checkbox" id="Blog"/>
-                    <label htmlFor="Blog"><span className="checkbox-icon"></span> Blog</label>
-                  </div>
+                  <FormControlLabel control={<Checkbox/>} label=" Blog"/>
                 </div>
                 <div className="col-xl-4">
-                  <div className="checkbox">
-                    <input type="checkbox" id="News"/>
-                    <label htmlFor="News"><span className="checkbox-icon"></span> News Site</label>
-                  </div>
+                  <FormControlLabel control={<Checkbox/>} label=" News Site"/>
                 </div>
 
               </div>
@@ -81,10 +61,6 @@ const AdsMarketingChannel = () => {
 
           </div>
         </div>
-
-
-
-
 
 
       </div>
