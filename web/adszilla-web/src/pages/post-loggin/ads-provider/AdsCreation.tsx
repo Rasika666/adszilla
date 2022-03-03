@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import AdsOverview from "./ads-creation-pages/AdsOverview";
+import React, {useRef, useState} from 'react';
+import AdsOverview, {setAdOverview} from "./ads-creation-pages/AdsOverview";
 import Stepper from "../../../components/common/Stepper"
 import ProfileWrapper from "../../../components/layouts/ProfileWrapper";
 import AdsMarketingChannel from "./ads-creation-pages/AdsMarketingChannel";
@@ -13,6 +13,8 @@ import AdsCreationFinish from "./ads-creation-pages/AdsCreationFinish";
 const steps = ['Overview', 'Marketing Channel', 'Target Area', 'Content', 'Budget', 'Publish'];
 
 const AdsCreation = () => {
+
+  const adsOverviewRef = useRef<setAdOverview>(null);
 
 
   const [activeStep, setActiveStep] = useState(0);
@@ -35,6 +37,12 @@ const AdsCreation = () => {
 
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
     setSkipped(newSkipped);
+    console.log(activeStep)
+    console.log(adsOverviewRef.current)
+
+    if (activeStep === 0) adsOverviewRef.current?.updateOverview()
+
+
   };
 
   const handleBack = () => {
@@ -79,7 +87,7 @@ const AdsCreation = () => {
                 </>
             ) : (
                 <>
-                  {activeStep === 0 && <AdsOverview/>}
+                  {activeStep === 0 && <AdsOverview ref={adsOverviewRef}/>}
                   {activeStep === 1 && <AdsMarketingChannel/>}
                   {activeStep === 2 && <AdsTargetArea/>}
                   {activeStep === 3 && <AdsContent/>}
