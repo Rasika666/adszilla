@@ -50,7 +50,7 @@ const AdsTargetArea = () => {
                       <Marker key={i} position={latLng}/>
                   ))}
                 </GMap>
-              </Wrapper>s
+              </Wrapper>
 
             </div>
             <div className="col-xl-4 align-self-end">

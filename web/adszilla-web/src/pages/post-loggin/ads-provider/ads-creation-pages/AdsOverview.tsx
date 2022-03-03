@@ -1,6 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import {Autocomplete, FormControl, InputLabel, MenuItem, TextField} from "@mui/material";
+import {Tags} from "../../../../externalData/TagList";
 
 const AdsOverview = () => {
+
+
+
+
   return (
       <div className="dashboard-box margin-top-30 margin-bottom-30 row d-flex justify-content-center">
         <div className="headline col-xl-12">
@@ -14,62 +21,80 @@ const AdsOverview = () => {
 
               <div className="col-xl-6 border-top">
                 <div className="submit-field">
-                  <h5>Ad Title</h5>
-                  <input type="text" className="with-border" />
+                  <FormControl fullWidth>
+                    <TextField label="Ad Title" id="fullWidth" />
+                  </FormControl>
                 </div>
               </div>
 
               <div className="col-xl-6">
                 <div className="submit-field">
-                  <h5>Ad Type</h5>
-                  <select className="selectpicker with-border" data-size="7" title="Ad Type">
-                    <option>Banner</option>
-                    <option>Video</option>
-                  </select>
+                  <FormControl fullWidth>
+                    <InputLabel id="AdType">Ad Type</InputLabel>
+                    <Select
+                        labelId="AdType"
+                        label="AdType">
+                      <MenuItem value={"banner"}>Banner</MenuItem>
+                      <MenuItem value={"video"}>Video</MenuItem>
+                    </Select>
+                  </FormControl>
+
                 </div>
               </div>
 
               <div className="col-xl-6">
                 <div className="submit-field">
-                  <h5>Job Category</h5>
-                  <select className="selectpicker with-border" data-size="7" title="Category">
-                    <option>Accounting and Finance</option>
-                    <option>Clerical & Data Entry</option>
-                    <option>Counseling</option>
-                    <option>Court Administration</option>
-                    <option>Human Resources</option>
-                    <option>Investigative</option>
-                    <option>IT and Computers</option>
-                    <option>Law Enforcement</option>
-                    <option>Management</option>
-                    <option>Miscellaneous</option>
-                    <option>Public Relations</option>
-                  </select>
+                  <FormControl fullWidth>
+                    <InputLabel id="AdCategory">Ad Category</InputLabel>
+                    <Select
+                        labelId="AdCategory"
+                        label="AdCategory">
+                      <MenuItem value={"1"}>Accounting and Finance</MenuItem>
+                      <MenuItem value={"2"}>Clerical & Data Entry</MenuItem>
+                      <MenuItem value={"3"}>Counseling</MenuItem>
+                      <MenuItem value={"4"}>Court Administration</MenuItem>
+                      <MenuItem value={"5"}>Human Resources</MenuItem>
+                      <MenuItem value={"6"}>Investigative</MenuItem>
+                      <MenuItem value={"7"}>Public Relations</MenuItem>
+                      <MenuItem value={"8"}>Law Enforcement</MenuItem>
+
+                    </Select>
+                  </FormControl>
+
                 </div>
               </div>
 
               <div className="col-xl-6">
                 <div className="submit-field">
-                  <h5>Tags <span>(optional)</span> <i className="help-icon" data-tippy-placement="right"
-                                                      title="Maximum of 10 tags"></i></h5>
-                  <div className="keywords-container">
-                    <div className="keyword-input-container">
-                      <input type="text" className="keyword-input with-border"
-                             placeholder="e.g. job title, responsibilites"/>
-                      <button className="keyword-input-button ripple-effect"><i
-                          className="icon-material-outline-add"></i></button>
-                    </div>
-                    <div className="keywords-list"></div>
-                    <div className="clearfix"></div>
-                  </div>
+
+                  <FormControl fullWidth>
+                    <Autocomplete
+                        multiple
+                        limitTags={2}
+                        options={Tags}
+                        getOptionLabel={(option) => option.title}
+                        defaultValue={[]}
+                        renderInput={(params) => (
+                            <TextField {...params} label="Tags" placeholder="Tags" />
+                        )}
+
+                    />
+                  </FormControl>
 
                 </div>
               </div>
 
               <div className="col-xl-12">
                 <div className="submit-field">
-                  <h5>Description</h5>
-                  <textarea cols={30} rows={5} className="with-border"></textarea>
+                  <FormControl fullWidth>
+                    <TextField
+                        label="Description"
+                        multiline
+                        rows={5}
+                        variant="outlined"
+                    />
+                  </FormControl>
+
                 </div>
               </div>
 
