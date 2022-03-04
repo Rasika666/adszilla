@@ -1,7 +1,19 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Checkbox, FormControlLabel} from "@mui/material";
+import {setAdCurrentPageAction} from "../../../../redux/post-loggin/actions/ad-creation-actions/adCreateAction";
+import {AdCreatePage} from "../../../../domain/typeDef";
+import {useDispatch} from "react-redux";
 
 const AdsMarketingChannel = () => {
+  const dispatch = useDispatch();
+
+
+
+  useEffect(()=> {
+    dispatch(setAdCurrentPageAction(AdCreatePage.CHANNEL));
+  }, [])
+
+
   return (
       <div className="dashboard-box margin-top-30 margin-bottom-30 row d-flex justify-content-center">
 
