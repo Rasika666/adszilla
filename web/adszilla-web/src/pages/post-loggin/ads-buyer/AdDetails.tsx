@@ -1,22 +1,30 @@
-import React from 'react';
+import { StyledStepper } from '@chakra-ui/react';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import AdDescription from '../../../components/common/Adescription';
 import AdHeader from '../../../components/common/AdHeader';
 import AdSideBar from '../../../components/common/AdSideBar';
-import FilterSideBarV2 from "../../../components/common/FilterSideBarV2";
 import Wrapper from "../../../components/layouts/Wrapper";
+import { RootState } from '../../../redux/post-loggin/reducers/rootReducer';
 
 const AdDetails = () => {
+
+  const ads = useSelector((state: RootState) => state.ads.ads);
+
+  let { addId } = useParams();
+  
   return (
 
       <Wrapper>
         <div className="full-page-content-container" data-simplebar>
-            <AdHeader/>
+            <AdHeader ad={ads[Number(addId)]}/>
             <div className="container">
-	<            div className="row">
+	            <div className="row">
                <div className="col-xl-8 col-lg-8 content-right-offset">
-             <   AdDescription />
+                  <AdDescription ad={ads[Number(addId)]}/>
                </div>
-             <AdSideBar />
+             <AdSideBar ad={ads[Number(addId)]}/>
             </div>
           </div>
         </div>

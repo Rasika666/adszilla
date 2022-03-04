@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
+import { Ad } from '../../domain/ad';
 
-const AdHeader = () => {
+type AdHeaderProps = PropsWithChildren<{ ad: Ad}>
+
+const AdHeader = ({ad} :AdHeaderProps) => {
   return (
     <div className="single-page-header" data-background-image="images/single-job.jpg">
     <div className="container">
@@ -10,20 +13,19 @@ const AdHeader = () => {
             <div className="left-side">
               <div className="header-image"><a href="single-company-profile.html"><img src="images/company-logo-03a.png" alt=""></img></a></div>
               <div className="header-details">
-                <h3>Restaurant General Manager</h3>
-                <h5>About the Employer</h5>
+                <h3>{ad.overview.adTitle}</h3>
+                <h5>{ad.overview.adDescription}</h5>
                 <ul>
-                  <li><a href="single-company-profile.html"><i className="icon-material-outline-business"></i> King</a></li>
+                  <li><a href="single-company-profile.html"><i className="icon-material-outline-business"></i>{ad.targetArea.areas[0]}</a></li>
                   <li><div className="star-rating" data-rating="4.9"></div></li>
-                  <li><img className="flag" src="images/flags/gb.svg" alt=""></img> United Kingdom</li>
                   <li><div className="verified-badge-with-title">Verified</div></li>
                 </ul>
               </div>
             </div>
             <div className="right-side">
               <div className="salary-box">
-                <div className="salary-type">Annual Salary</div>
-                <div className="salary-amount">$35k - $38k</div>
+                <div className="salary-type">Budget</div>
+                <div className="salary-amount">Rs {ad.budget.budgetPerDuration}/=</div>
               </div>
             </div>
           </div>

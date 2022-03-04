@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
+import { Link } from 'react-router-dom';
+import { Ad } from '../../domain/ad';
 
-const AdSideBar = () => {
+type AdSideBarProps = PropsWithChildren<{ ad: Ad}>
+
+
+const AdSideBar = ({ad} : AdSideBarProps) => {
   return (
 <   div className="col-xl-4 col-lg-4">
 			<div className="sidebar-container">
 
-				<a href="#small-dialog" className="apply-now-button popup-with-zoom-anim">Apply Now <i className="icon-material-outline-arrow-right-alt"></i></a>
+				<Link to="/proposal-creation" className="apply-now-button popup-with-zoom-anim">Send your proposal<i className="icon-material-outline-arrow-right-alt"></i></Link>
 					
 				<div className="sidebar-widget">
 					<div className="job-overview">
@@ -15,17 +20,17 @@ const AdSideBar = () => {
 								<li>
 									<i className="icon-material-outline-location-on"></i>
 									<span>Location</span>
-									<h5>London, United Kingdom</h5>
+									<h5>{ad.targetArea.areas[0]}</h5>
 								</li>
 								<li>
 									<i className="icon-material-outline-business-center"></i>
-									<span>Job Type</span>
-									<h5>Full Time</h5>
+									<span>Ad Type</span>
+									<h5>{ad.overview.adType}</h5>
 								</li>
 								<li>
 									<i className="icon-material-outline-local-atm"></i>
-									<span>Salary</span>
-									<h5>$35k - $38k</h5>
+									<span>Budget</span>
+									<h5>{ad.budget.budgetPerDuration}</h5>
 								</li>
 								<li>
 									<i className="icon-material-outline-access-time"></i>
