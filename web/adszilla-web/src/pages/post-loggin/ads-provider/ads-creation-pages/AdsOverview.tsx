@@ -67,7 +67,7 @@ const AdsOverview = forwardRef<setAdOverview, {}>((props, ref) => {
 
           <div className="row">
 
-            <div className="col-xl-6 border-top">
+            <div className="col-xl-6">
               <div className="submit-field">
                 <FormControl fullWidth>
                   <TextField label="Ad Title" id="fullWidth" value={adTitle}

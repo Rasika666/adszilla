@@ -1,6 +1,20 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {useDispatch} from "react-redux";
+import {setAdCurrentPageAction} from "../../../../redux/post-loggin/actions/ad-creation-actions/adCreateAction";
+import {AdCreatePage} from "../../../../domain/typeDef";
 
 const AdsContent = () => {
+  const dispatch = useDispatch();
+
+  const updateCurrentPage = () => {
+    dispatch(setAdCurrentPageAction(AdCreatePage.CONTENT));
+  };
+
+  useEffect(() => {
+    updateCurrentPage();
+  }, [])
+
+
   return (
       <div className="dashboard-box margin-top-30 margin-bottom-30 row d-flex justify-content-center">
         <div className="headline col-xl-12">

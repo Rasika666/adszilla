@@ -1,6 +1,6 @@
 import {Ad, AdsBudget, AdsDetails, AdsMarketingChannel, AdsTargetArea} from "../../../../domain/ad";
 
-import {CREATE_AD_CHANNEL, CREATE_AD_OVERVIEW, SET_CURRENT_PAGE} from "../../actions/type";
+import {CREATE_AD_BUDGET, CREATE_AD_CHANNEL, CREATE_AD_OVERVIEW, SET_CURRENT_PAGE} from "../../actions/type";
 import {AdAction, AdPageCreatePayload} from "../../actions/ad-creation-actions/adCreateAction";
 import {AdCreatePage} from "../../../../domain/typeDef";
 
@@ -80,9 +80,17 @@ export const adCreateReducer = (state: AdState = initState,
         channel: {
           channel: action.payload.channel,
           isChannelFinished: true,
-        }
+        },
+      };
 
-      }
+    case CREATE_AD_BUDGET:
+      return {
+        ...state,
+        budget : {
+          budget: action.payload.budget,
+          isBudgetFinished: true
+        },
+      };
 
     default: return state;
   }

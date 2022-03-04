@@ -85,7 +85,9 @@ export interface AdsTargetArea {
   areas: string[];
 }
 
-export interface AdsBudget {
-  budgetPerView: number;
-  budgetPerDuration: number;
+export class AdsBudget {
+  youtubeBudget: number | null = null;
+  instagramBudget: number | null= null;
+  twitterBudget: number | null= null;
+  facebookBudget: number | null = null;
 }
