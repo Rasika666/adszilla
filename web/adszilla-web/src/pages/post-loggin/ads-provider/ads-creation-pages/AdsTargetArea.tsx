@@ -1,20 +1,32 @@
-import React, {useEffect, useState} from 'react';
+import React, {forwardRef, useEffect, useImperativeHandle, useState} from 'react';
 import {Status, Wrapper} from "@googlemaps/react-wrapper";
 import Marker from "../../../../components/map/Marker";
 import GMap from "../../../../components/map/Map"
-import {useDispatch} from "react-redux";
-import {setAdCurrentPageAction} from "../../../../redux/post-loggin/actions/ad-creation-actions/adCreateAction";
+import {useDispatch, useSelector} from "react-redux";
+import {
+  adTargetAreaAction,
+  setAdCurrentPageAction
+} from "../../../../redux/post-loggin/actions/ad-creation-actions/adCreateAction";
 import {AdCreatePage} from "../../../../domain/typeDef";
+import {AdsTargetArea as TargetArea} from "../../../../domain/ad";
+import {RootState} from "../../../../redux/post-loggin/reducers/rootReducer";
+
+
+export interface setAdTargetArea{
+  updateTargetArea: () => void,
+};
 
 
 const render = (status: Status) => {
   return <h1>{status}</h1>;
 };
 
-const AdsTargetArea = () => {
+const AdsTargetArea = forwardRef<setAdTargetArea, {}>((props, ref) => {
   const dispatch = useDispatch();
 
-  const [clicks, setClicks] = useState<google.maps.LatLng[]>([]);
+  const adTargetAreaState = useSelector((state: RootState) => state.ads.targetArea);
+
+  const [clicks, setClicks] = useState<google.maps.LatLng[]>(adTargetAreaState.targetArea.latLng);
   const [zoom, setZoom] = useState(8);
   const [center, setCenter] = useState<google.maps.LatLngLiteral>({
     lat: 7.395849721904666,
@@ -32,9 +44,24 @@ const AdsTargetArea = () => {
     setCenter(m.getCenter()!.toJSON());
   };
 
+  const updateTargetArea = () => {
+    const targetArea: TargetArea ={
+      latLng: clicks,
+      nearAreas: []
+    };
+    dispatch(adTargetAreaAction(targetArea));
+  };
+
+
   const updateCurrentPage = () => {
     dispatch(setAdCurrentPageAction(AdCreatePage.TARGET_AREA));
   };
+
+  useImperativeHandle(ref,
+      () => ({
+        updateTargetArea: updateTargetArea
+      })
+  );
 
   useEffect(() => updateCurrentPage(), []);
 
@@ -72,7 +99,7 @@ const AdsTargetArea = () => {
         </div>
       </div>
   );
-};
+});
 
 
 export default AdsTargetArea;

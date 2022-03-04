@@ -1,5 +1,11 @@
 import {AdsBudget, AdsDetails, AdsMarketingChannel, AdsTargetArea} from "../../../../domain/ad";
-import {CREATE_AD_BUDGET, CREATE_AD_CHANNEL, CREATE_AD_OVERVIEW, SET_CURRENT_PAGE} from "../type";
+import {
+  CREATE_AD_BUDGET,
+  CREATE_AD_CHANNEL,
+  CREATE_AD_OVERVIEW,
+  CREATE_AD_TARGET_AREA,
+  SET_CURRENT_PAGE
+} from "../type";
 import {AdCreatePage} from "../../../../domain/typeDef";
 
 export interface AdPageCreatePayload {
@@ -63,6 +69,20 @@ export const adBudgetAction = (budget: AdsBudget): AdAction<AdPageCreatePayload>
 
   return {
     type: CREATE_AD_BUDGET,
+    payload:payload
+  };
+};
+
+export const adTargetAreaAction = (targetArea: AdsTargetArea): AdAction<AdPageCreatePayload> => {
+  const payload: AdPageCreatePayload = {
+    overview: {} as AdsDetails,
+    channel: {} as AdsMarketingChannel,
+    targetArea: targetArea,
+    budget: {} as AdsBudget
+  };
+
+  return {
+    type: CREATE_AD_TARGET_AREA,
     payload:payload
   };
 

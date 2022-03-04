@@ -7,7 +7,7 @@ export interface Ad {
 };
 
 
-export class AdBuilder {
+export class AdBuilder{
 
   private readonly _ad: Ad;
 
@@ -41,7 +41,7 @@ export class AdBuilder {
     return this;
   }
 
-}
+};
 
 export enum AdType {
   Video = "Video",
@@ -81,8 +81,9 @@ export class WebChannel implements Channel{
   news: boolean = false;
 };
 
-export interface AdsTargetArea {
-  areas: string[];
+export class AdsTargetArea {
+  latLng: google.maps.LatLng[] = [];
+  nearAreas: string[] = []
 }
 
 export class AdsBudget {

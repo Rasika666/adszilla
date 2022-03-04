@@ -4,7 +4,7 @@ import Stepper from "../../../components/common/Stepper"
 import ProfileWrapper from "../../../components/layouts/ProfileWrapper";
 import AdsMarketingChannel, {setAdChannel} from "./ads-creation-pages/AdsMarketingChannel";
 import AdsContent from "./ads-creation-pages/AdsContent";
-import AdsTargetArea from "./ads-creation-pages/AdsTargetArea";
+import AdsTargetArea, {setAdTargetArea} from "./ads-creation-pages/AdsTargetArea";
 import AdsBudget, {setAdBudget} from "./ads-creation-pages/AdsBudget";
 import AdsPublish from "./ads-creation-pages/AdsPublish";
 import AdsCreationFinish from "./ads-creation-pages/AdsCreationFinish";
@@ -17,6 +17,7 @@ const AdsCreation = () => {
   const adsOverviewRef = useRef<setAdOverview>(null);
   const adsChannelRef = useRef<setAdChannel>(null);
   const adsBudgetRef = useRef<setAdBudget>(null);
+  const adsTargetAreaRef = useRef<setAdTargetArea>(null);
 
 
   const [activeStep, setActiveStep] = useState(0);
@@ -44,8 +45,8 @@ const AdsCreation = () => {
 
     if (activeStep === 0) adsOverviewRef.current?.updateOverview();
     if (activeStep === 1) adsChannelRef.current?.updateChannel();
+    if (activeStep === 2) adsTargetAreaRef.current?.updateTargetArea();
     if (activeStep === 4) adsBudgetRef.current?.updateBudget();
-
 
   };
 
@@ -93,7 +94,7 @@ const AdsCreation = () => {
                 <>
                   {activeStep === 0 && <AdsOverview ref={adsOverviewRef}/>}
                   {activeStep === 1 && <AdsMarketingChannel ref={adsChannelRef}/>}
-                  {activeStep === 2 && <AdsTargetArea/>}
+                  {activeStep === 2 && <AdsTargetArea ref={adsTargetAreaRef}/>}
                   {activeStep === 3 && <AdsContent/>}
                   {activeStep === 4 && <AdsBudget ref={adsBudgetRef}/>}
                   {activeStep === 5 && <AdsPublish/>}

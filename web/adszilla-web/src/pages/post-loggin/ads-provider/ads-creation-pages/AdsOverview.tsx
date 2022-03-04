@@ -17,10 +17,9 @@ export interface setAdOverview {
 
 
 const AdsOverview = forwardRef<setAdOverview, {}>((props, ref) => {
+  const dispatch = useDispatch();
 
   const adOverviewState = useSelector((state: RootState) => state.ads.overview);
-
-  const dispatch = useDispatch();
 
   const [adTitle, setAdTitle] = useState<string>(adOverviewState.overview.adTitle);
   const [adType, setAdType] = useState<string>(adOverviewState.overview.adType);
@@ -131,7 +130,7 @@ const AdsOverview = forwardRef<setAdOverview, {}>((props, ref) => {
                       options={Tags}
                       getOptionLabel={(option) => option.tag}
                       defaultValue={[]}
-                      onChange={(event, newValue) => setAdTags([...adTags, ...newValue])}
+                      onChange={(event, newValue) => setAdTags([...newValue])}
                       renderInput={(params) => (
                           <TextField {...params} label="Tags" placeholder="Tags"/>
                       )}

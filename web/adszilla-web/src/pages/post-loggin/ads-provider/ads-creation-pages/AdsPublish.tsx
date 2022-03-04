@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {useDispatch} from "react-redux";
 import {setAdCurrentPageAction} from "../../../../redux/post-loggin/actions/ad-creation-actions/adCreateAction";
 import {AdCreatePage} from "../../../../domain/typeDef";
+import {Checkbox, FormControlLabel} from "@mui/material";
 
 const AdsPublish = () => {
 
@@ -29,11 +30,15 @@ const AdsPublish = () => {
               </p>
 
             </div>
-            <div className="col-xl-4 margin-top-50">
+            <div className="col-xl-6 margin-top-50">
 
               <div className="checkbox">
-                <input type="checkbox" id="agreeToCont"/>
-                <label htmlFor="agreeToCont"><span className="checkbox-icon"></span> Agree to continue</label>
+                <FormControlLabel
+                    control={<Checkbox
+                                       name="adCreateAgreement"
+                                       />}
+                    label=" Agree to Continue"/>
+
               </div>
 
               <button className="button full-width blue  margin-top-25" >Publish</button>

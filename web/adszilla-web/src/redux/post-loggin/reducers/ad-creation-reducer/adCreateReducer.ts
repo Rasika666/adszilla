@@ -1,8 +1,16 @@
-import {Ad, AdsBudget, AdsDetails, AdsMarketingChannel, AdsTargetArea} from "../../../../domain/ad";
+import {Ad, AdBuilder, AdsBudget, AdsDetails, AdsMarketingChannel, AdsTargetArea} from "../../../../domain/ad";
 
-import {CREATE_AD_BUDGET, CREATE_AD_CHANNEL, CREATE_AD_OVERVIEW, SET_CURRENT_PAGE} from "../../actions/type";
+import {
+  CREATE_AD_BUDGET,
+  CREATE_AD_CHANNEL,
+  CREATE_AD_OVERVIEW,
+  CREATE_AD_TARGET_AREA,
+  PUBLISH_AD,
+  SET_CURRENT_PAGE
+} from "../../actions/type";
 import {AdAction, AdPageCreatePayload} from "../../actions/ad-creation-actions/adCreateAction";
 import {AdCreatePage} from "../../../../domain/typeDef";
+import {createNewAdFromState} from "../../../../utils/adCreateUtil";
 
 type AdOverviewState = {
   overview: AdsDetails,
@@ -33,32 +41,36 @@ export type AdState = {
   targetArea: AdTargetAreaState,
   budget: AdBudgetState,
   isAllFinish: boolean,
+  isAgreed: boolean,
 
 };
 
 const initState: AdState = {
   ads: [],
   currentPage: undefined,
-  overview: <AdOverviewState>{
+
+  overview: {
     overview: new AdsDetails(),
     isOverviewFinish: false
-  },
-  channel: <AdChannelState>{
+  } as AdOverviewState,
+
+  channel: {
     channel: new AdsMarketingChannel(),
     isChannelFinished: false
-  },
-  targetArea: <AdTargetAreaState>{
+  } as AdChannelState,
+
+  targetArea:{
     isTargetAreaFinished: false,
-    targetArea: <AdsTargetArea>{}
-  },
-  budget: <AdBudgetState>{
+    targetArea: new AdsTargetArea(),
+  } as AdTargetAreaState,
+
+  budget: {
     isBudgetFinished: false,
-    budget: <AdsBudget>{}
-  },
+    budget: new AdsBudget(),
+  } as AdBudgetState,
   isAllFinish: false,
+  isAgreed: false,
 }
-
-
 
 export const adCreateReducer = (state: AdState = initState,
                                 action: AdAction<AdPageCreatePayload>): AdState => {
@@ -86,19 +98,41 @@ export const adCreateReducer = (state: AdState = initState,
     case CREATE_AD_BUDGET:
       return {
         ...state,
-        budget : {
+        budget: {
           budget: action.payload.budget,
           isBudgetFinished: true
         },
       };
 
-    default: return state;
+    case CREATE_AD_TARGET_AREA:
+      return {
+        ...state,
+        targetArea: {
+          targetArea: action.payload.targetArea,
+          isTargetAreaFinished: true
+        },
+      };
+
+    case PUBLISH_AD:
+      if(state.isAgreed && state.isAllFinish) {
+        const {overview, budget, targetArea, channel} = state;
+        const newAd = createNewAdFromState(overview.overview, channel.channel, targetArea.targetArea, budget.budget);
+        return {
+          ...state,
+          ads: [...state.ads, newAd],
+        }
+      } else {
+        return state;
+      }
+
+    default:
+      return state;
   }
 
 };
 
 export const adCreatePageTrackReducer = (state: AdState = initState,
-                                         action: AdAction<AdCreatePage>): AdState =>{
+                                         action: AdAction<AdCreatePage>): AdState => {
 
   switch (action.type) {
 
@@ -106,9 +140,11 @@ export const adCreatePageTrackReducer = (state: AdState = initState,
       return {
         ...state,
         currentPage: action.payload
-        };
+      };
 
-    default: return state;
-  };
+    default:
+      return state;
+  }
+  ;
 
 };
