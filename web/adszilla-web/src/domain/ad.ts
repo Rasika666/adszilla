@@ -4,7 +4,7 @@ export interface Ad {
   channel: AdsMarketingChannel;
   targetArea: AdsTargetArea;
   budget: AdsBudget ;
-}
+};
 
 
 export class AdBuilder {
@@ -61,9 +61,25 @@ export interface Tag {
 }
 
 
-export interface AdsMarketingChannel {
-  channel: string;
+export class AdsMarketingChannel {
+  socialMediaChannel: SocialMediaChannel = new SocialMediaChannel();
+  webChannel: WebChannel = new WebChannel();
 }
+
+export interface Channel {};
+
+export class SocialMediaChannel implements Channel{
+  youtube: boolean = false;
+  facebook: boolean = false;
+  instagram: boolean = false;
+  twitter: boolean = false;
+};
+
+export class WebChannel implements Channel{
+  gossip: boolean = false;
+  blog: boolean = false;
+  news: boolean = false;
+};
 
 export interface AdsTargetArea {
   areas: string[];

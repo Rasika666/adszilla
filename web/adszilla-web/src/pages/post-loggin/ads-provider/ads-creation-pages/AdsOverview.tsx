@@ -51,7 +51,7 @@ const AdsOverview = forwardRef<setAdOverview, {}>((props, ref) => {
       () => ({
         updateOverview: updateOverview
       })
-  )
+  );
 
   useEffect(() => {
     updateCurrentPage();

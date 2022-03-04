@@ -1,6 +1,6 @@
 import {Ad, AdsBudget, AdsDetails, AdsMarketingChannel, AdsTargetArea} from "../../../../domain/ad";
 
-import {CREATE_AD_OVERVIEW, SET_CURRENT_PAGE} from "../../actions/type";
+import {CREATE_AD_CHANNEL, CREATE_AD_OVERVIEW, SET_CURRENT_PAGE} from "../../actions/type";
 import {AdAction, AdPageCreatePayload} from "../../actions/ad-creation-actions/adCreateAction";
 import {AdCreatePage} from "../../../../domain/typeDef";
 
@@ -44,7 +44,7 @@ const initState: AdState = {
     isOverviewFinish: false
   },
   channel: <AdChannelState>{
-    channel:<AdsMarketingChannel>{},
+    channel: new AdsMarketingChannel(),
     isChannelFinished: false
   },
   targetArea: <AdTargetAreaState>{
@@ -68,18 +68,26 @@ export const adCreateReducer = (state: AdState = initState,
     case CREATE_AD_OVERVIEW:
       return {
         ...state,
-        currentPage: AdCreatePage.OVERVIEW,
         overview: {
           overview: action.payload.overview,
-          isOverviewFinish: true
+          isOverviewFinish: true,
         },
       };
+
+    case CREATE_AD_CHANNEL:
+      return {
+        ...state,
+        channel: {
+          channel: action.payload.channel,
+          isChannelFinished: true,
+        }
+
+      }
 
     default: return state;
   }
 
 };
-
 
 export const adCreatePageTrackReducer = (state: AdState = initState,
                                          action: AdAction<AdCreatePage>): AdState =>{

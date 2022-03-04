@@ -2,7 +2,7 @@ import React, {useRef, useState} from 'react';
 import AdsOverview, {setAdOverview} from "./ads-creation-pages/AdsOverview";
 import Stepper from "../../../components/common/Stepper"
 import ProfileWrapper from "../../../components/layouts/ProfileWrapper";
-import AdsMarketingChannel from "./ads-creation-pages/AdsMarketingChannel";
+import AdsMarketingChannel, {setAdChannel} from "./ads-creation-pages/AdsMarketingChannel";
 import AdsContent from "./ads-creation-pages/AdsContent";
 import AdsTargetArea from "./ads-creation-pages/AdsTargetArea";
 import AdsBudget from "./ads-creation-pages/AdsBudget";
@@ -15,6 +15,7 @@ const steps = ['Overview', 'Marketing Channel', 'Target Area', 'Content', 'Budge
 const AdsCreation = () => {
 
   const adsOverviewRef = useRef<setAdOverview>(null);
+  const adsChannelRef = useRef<setAdChannel>(null);
 
 
   const [activeStep, setActiveStep] = useState(0);
@@ -40,7 +41,8 @@ const AdsCreation = () => {
     console.log(activeStep)
     console.log(adsOverviewRef.current)
 
-    if (activeStep === 0) adsOverviewRef.current?.updateOverview()
+    if (activeStep === 0) adsOverviewRef.current?.updateOverview();
+    if (activeStep === 1) adsChannelRef.current?.updateChannel();
 
 
   };
@@ -88,7 +90,7 @@ const AdsCreation = () => {
             ) : (
                 <>
                   {activeStep === 0 && <AdsOverview ref={adsOverviewRef}/>}
-                  {activeStep === 1 && <AdsMarketingChannel/>}
+                  {activeStep === 1 && <AdsMarketingChannel ref={adsChannelRef}/>}
                   {activeStep === 2 && <AdsTargetArea/>}
                   {activeStep === 3 && <AdsContent/>}
                   {activeStep === 4 && <AdsBudget/>}
