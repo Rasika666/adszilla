@@ -4,19 +4,27 @@ import Pagination from "../../../components/common/Pagination";
 import FilterSideBarV2 from "../../../components/common/FilterSideBarV2";
 import AdsV2 from "../../../components/ads/AdsV2";
 import Wrapper from "../../../components/layouts/Wrapper";
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../redux/post-loggin/reducers/rootReducer';
+
 
 const DashboardV2 = () => {
-  return (
 
+  const ads = useSelector((state: RootState) => state.ads.ads);
+  
+  return (
       <Wrapper>
         <FilterSideBarV2/>
 
         <div className="full-page-content-container" data-simplebar>
           <div className="full-page-content-inner">
-
+            <h3 className="page-title">Search Results</h3>
             <div className="listings-container grid-layout margin-top-35">
-              <AdsV2/>
-
+            {
+                    ads.map(ad =>
+                      <AdsV2/>
+                      )
+                  }
             </div>
 
             <div className="clearfix"></div>
@@ -31,8 +39,6 @@ const DashboardV2 = () => {
           </div>
         </div>
       </Wrapper>
-
-
   );
 };
 

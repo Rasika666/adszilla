@@ -12,6 +12,8 @@ import {AdAction, AdPageCreatePayload} from "../../actions/ad-creation-actions/a
 import {AdCreatePage} from "../../../../domain/typeDef";
 import {createNewAdFromState} from "../../../../utils/adCreateUtil";
 
+import { ADS } from "../../../../domain/data/ads";
+
 type AdOverviewState = {
   overview: AdsDetails,
   isOverviewFinish: boolean,
@@ -46,7 +48,7 @@ export type AdState = {
 };
 
 const initState: AdState = {
-  ads: [],
+  ads: ADS,
   currentPage: undefined,
 
   overview: {

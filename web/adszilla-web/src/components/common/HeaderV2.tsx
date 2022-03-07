@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const HeaderV2 = () => {
   return (
@@ -15,12 +16,7 @@ const HeaderV2 = () => {
               <nav id="navigation">
                 <ul id="responsive">
 
-                  <li><a href="#">Home</a>
-                    <ul className="dropdown-nav">
-                      <li><a href="index.html">Home 1</a></li>
-                      <li><a href="index-2.html">Home 2</a></li>
-                      <li><a href="index-3.html">Home 3</a></li>
-                    </ul>
+                  <li><Link to="/">Home</Link>
                   </li>
 
 
