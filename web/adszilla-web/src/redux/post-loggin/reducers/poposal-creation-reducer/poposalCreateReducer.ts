@@ -4,7 +4,7 @@ import {CREATE_POPOSAL_OVERVIEW, SET_CURRENT_PAGE} from "../../actions/type";
 import {AdAction, AdPageCreatePayload} from "../../actions/ad-creation-actions/adCreateAction";
 import {AdCreatePage} from "../../../../domain/typeDef";
 
-import { POPOSALS } from "../../../../domain/data/poposals";
+import { POPOSALS } from "../../../../dummy/data/poposals";
 import { PoposalAction } from "../../actions/poposal-creation-actions/poposalCreateAction";
 
 

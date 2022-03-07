@@ -83,7 +83,8 @@ const AdsCreation = () => {
                      skipped={skipped}
                      isStepSkipped={isStepSkipped}
                      isStepOptional={isStepOptional}
-                     steps={steps}/>
+                     steps={steps}
+                     orientation={undefined}/>
 
 
             {activeStep === steps.length ? (

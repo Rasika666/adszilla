@@ -1,14 +1,13 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import TestMe from "./pages/post-loggin/Home";
+import Home from "./pages/post-loggin/Home";
 import DashboardV2 from "./pages/post-loggin/ads-buyer/DashboardV2";
 import AdsCreation from "./pages/post-loggin/ads-provider/AdsCreation";
 import MyAdDashboard from "./pages/post-loggin/ads-provider/MyAdDashboard";
 import AdsProposal from "./pages/post-loggin/ads-provider/AdsProposal";
-import AdDetails from "./pages/post-loggin/ads-buyer/AdDetails";
-import Home from "./pages/post-loggin/Home";
+import AdDetails from "./pages/common/AdDetails";
 import AdBuyerDashboard from "./pages/post-loggin/ads-buyer/AdBuyerDashboard";
 import AdsProposalBuyer from "./pages/post-loggin/ads-buyer/AdsProposalBuyer";
-import ProposalCreation from "./pages/post-loggin/ads-buyer/ProposalCreation";
+import {UserType} from "./utils/adCreateUtil";
 
 function App() {
   return (
@@ -17,12 +16,11 @@ function App() {
           <Route path={'/'} element={<Home/>}/>
           <Route path={'/dashboard2'} element={<DashboardV2/>}/>
           <Route path={'/ads-creation'} element={<AdsCreation/>}/>
-          <Route path={'/proposal-creation'} element={<ProposalCreation/>}/>
           <Route path={'/my-ads'} element={<MyAdDashboard/>}/>
           <Route path={'/view-proposal'} element={<AdsProposal/>}/>
           <Route path={'/ad-buyer-proposal'} element={<AdsProposalBuyer/>}/>
-          <Route path={'/adscreation'} element={<AdsCreation/>}/>
-          <Route path={'/ad-details/:addId'} element={<AdDetails/>}/>
+          <Route path={'/ad-details/:adId/provider/profile'} element={<AdDetails userType={UserType.AD_PROVIDER}/>}/>
+          <Route path={'/ad-details/:adId/buyer/profile'} element={<AdDetails userType={UserType.AD_BUYER}/>}/>
           <Route path={'/ad-buyer-dashboard'} element={<AdBuyerDashboard/>}/>
         </Routes>
       </BrowserRouter>

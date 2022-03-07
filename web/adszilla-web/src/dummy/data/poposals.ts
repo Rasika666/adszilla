@@ -1,4 +1,4 @@
-import { Poposal } from "../poposal";
+import { Poposal } from "../../domain/poposal";
 
 export const POPOSALS = [
     <Poposal>{

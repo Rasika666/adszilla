@@ -4,7 +4,7 @@ const SimpleFooter = () => {
   return (
       <div className="small-footer margin-top-15">
         <div className="small-footer-copyrights">
-          © 2018 <strong>Hireo</strong>. All Rights Reserved.
+          © 2022 <strong>AdsZilla</strong>. All Rights Reserved.
         </div>
         <ul className="footer-social-links">
           <li>

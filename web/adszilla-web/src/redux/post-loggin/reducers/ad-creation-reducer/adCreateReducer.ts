@@ -12,7 +12,7 @@ import {AdAction, AdPageCreatePayload} from "../../actions/ad-creation-actions/a
 import {AdCreatePage} from "../../../../domain/typeDef";
 import {createNewAdFromState} from "../../../../utils/adCreateUtil";
 
-import { ADS } from "../../../../domain/data/ads";
+import { ADS } from "../../../../dummy/data/ads";
 
 type AdOverviewState = {
   overview: AdsDetails,

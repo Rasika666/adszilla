@@ -4,9 +4,9 @@ import { Ad } from '../../../domain/ad';
 
 type FeaturedJobCardProps = PropsWithChildren<{ ad: Ad}>
 
-const FeaturedJobCard = ({ad} : FeaturedJobCardProps) => {
+const FeaturedAdsCard = ({ad} : FeaturedJobCardProps) => {
   return (
-    <Link to={`/ad-details/${ad.id}`} className="job-listing with-apply-button">
+    <Link to={`/ad-details/${ad.id}/buyer/profile`} className="job-listing with-apply-button">
 		<div className="job-listing-details">
 
 			<div className="job-listing-company-logo">
@@ -31,4 +31,4 @@ const FeaturedJobCard = ({ad} : FeaturedJobCardProps) => {
   );
 };
 
-export default FeaturedJobCard;
+export default FeaturedAdsCard;

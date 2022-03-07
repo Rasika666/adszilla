@@ -13,4 +13,11 @@ export const createNewAdFromState = (
     budget,
     id: Date.now().toString(),
   } as Ad;
+};
+
+
+export enum UserType {
+  AD_PROVIDER,
+  AD_BUYER,
+  ADMIN,
 }

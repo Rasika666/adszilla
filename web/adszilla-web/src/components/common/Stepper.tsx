@@ -1,12 +1,14 @@
 import React, {FC} from 'react';
 import {Step, StepLabel, Stepper as MuiStepper, Typography} from "@mui/material";
+import {Orientation} from "@mui/material/Stepper/Stepper";
 
 export interface StepperParam {
-  skipped: Set<number>;
+  skipped?: Set<number>;
   activeStep: number;
-  isStepOptional: (step: number) => boolean;
-  isStepSkipped: (step: number) => boolean;
-  steps: string[]
+  isStepOptional?: (step: number) => boolean;
+  isStepSkipped?: (step: number) => boolean;
+  steps: string[],
+  orientation: Orientation | undefined
 };
 
 
@@ -16,23 +18,24 @@ const Stepper: FC<StepperParam> = ({
                                      isStepOptional,
                                      isStepSkipped,
                                      steps,
+                                     orientation
                                    }) => {
 
 
   return (
-      <MuiStepper activeStep={activeStep}>
+      <MuiStepper activeStep={activeStep} orientation={orientation}>
 
         {steps.map((label, index) => {
           const stepProps: { completed?: boolean } = {};
           const labelProps: {
             optional?: React.ReactNode;
           } = {};
-          if (isStepOptional(index)) {
+          if (isStepOptional != undefined && isStepOptional(index)) {
             labelProps.optional = (
                 <Typography variant="caption">Optional</Typography>
             );
           }
-          if (isStepSkipped(index)) {
+          if (isStepSkipped != undefined && isStepSkipped(index)) {
             stepProps.completed = false;
           }
           return (
