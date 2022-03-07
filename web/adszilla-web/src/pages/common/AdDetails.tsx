@@ -80,9 +80,33 @@ const AdDetails: FC<AdDetailsProps> = ({userType}) => {
 
                   <div className="row">
                     <div className="col-xl-6">
-                      <h3 className="margin-bottom-25 margin-top-100">Additional Details</h3>
+                      <h3 className="margin-top-100">Additional Details</h3>
+
+                      <div className="job-listing-details" style={{padding:"0px 35px"}}>
+                        <div className="job-listing-description">
+                          <h4 className="job-listing-title" style={{marginBottom:"0px"}}>Ad Duration</h4>
+                          <div className="job-listing-footer">
+                            <ul className="dashboard-box-list">
+                              <li  style={{paddingTop:"5px", paddingLeft: "30px"}}><i className="icon-material-outline-access-time"></i> 30 Second</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="job-listing-details" style={{paddingTop:"0px"}}>
+                        <div className="job-listing-description">
+                          <h4 className="job-listing-title" style={{marginBottom:"0px"}}>Ad Size</h4>
+                          <div className="job-listing-footer">
+                            <ul className="dashboard-box-list">
+                              <li  style={{paddingTop:"5px", paddingLeft: "30px"}}><i className="icon-material-outline-access-time"></i> 55 Mb</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+
 
                     </div>
+
                     <div className="col-xl-6">
                       <h3 className="margin-bottom-25 margin-top-100">Ad Status</h3>
                       <Stepper activeStep={activeStep}

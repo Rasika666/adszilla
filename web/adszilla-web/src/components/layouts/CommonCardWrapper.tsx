@@ -11,7 +11,7 @@ export interface CommonCardHeaderProps{
 
 const CommonCardWrapper: FC<CommonCardWrapperProps>= ({header, children}) => {
   return (
-      <div className="col-xl-12">
+      <div className="col-xl-12" style={{margin: "5px 0px"}}>
         <div className="dashboard-box margin-top-0">
           {header.isHeaderVisibility && (
               <div className="headline">
@@ -19,7 +19,7 @@ const CommonCardWrapper: FC<CommonCardWrapperProps>= ({header, children}) => {
               </div>
           )}
 
-          <div className="content">
+          <div className="content with-padding padding-bottom-10">
             {children}
           </div>
         </div>

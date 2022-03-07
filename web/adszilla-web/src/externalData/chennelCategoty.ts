@@ -1,0 +1,22 @@
+export const channelCategory = [
+  {category: "Beauty"},
+  {category: "Gaming"},
+  {category: "Tech"},
+  {category: "Family"},
+  {category: "Lifestyle"},
+  {category: "Fashion"},
+  {category: "DIY"},
+  {category: "Travel"},
+  {category: "Health and fitness"},
+  {category: "Vloggers"},
+  {category: "Cooking"},
+  {category: "Learning"},
+  {category: "Music & Dance"},
+  {category: "Prank/challenge"},
+  {category: "Design/art"},
+  {category: "Sports"},
+  {category: "ASMR"},
+  {category: "Animation"},
+  {category: "Conspiracy"},
+
+]

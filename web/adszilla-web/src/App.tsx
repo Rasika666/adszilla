@@ -8,6 +8,7 @@ import AdDetails from "./pages/common/AdDetails";
 import AdBuyerDashboard from "./pages/post-loggin/ads-buyer/AdBuyerDashboard";
 import AdsProposalBuyer from "./pages/post-loggin/ads-buyer/AdsProposalBuyer";
 import {UserType} from "./utils/adCreateUtil";
+import AdProposalForm from "./pages/post-loggin/ads-buyer/AdProposalForm";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path={'/ads-creation'} element={<AdsCreation/>}/>
           <Route path={'/my-ads'} element={<MyAdDashboard/>}/>
           <Route path={'/view-proposal'} element={<AdsProposal/>}/>
+          <Route path={'/create-proposal'} element={<AdProposalForm/>}/>
           <Route path={'/ad-buyer-proposal'} element={<AdsProposalBuyer/>}/>
           <Route path={'/ad-details/:adId/provider/profile'} element={<AdDetails userType={UserType.AD_PROVIDER}/>}/>
           <Route path={'/ad-details/:adId/buyer/profile'} element={<AdDetails userType={UserType.AD_BUYER}/>}/>

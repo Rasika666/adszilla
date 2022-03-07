@@ -16,9 +16,9 @@ const AdSideBar: FC<AdSideBarProps> = ({ad, userType}) => {
           {userType === UserType.AD_BUYER && (
               <>
                 <Link
-                    to="/proposal-creation"
+                    to="/create-proposal"
                     className="apply-now-button popup-with-zoom-anim ripple-effect button-sliding-icon">
-                  Send your proposal
+                  Create proposal
                   <i className="icon-material-outline-arrow-right-alt"></i>
                 </Link>
 
