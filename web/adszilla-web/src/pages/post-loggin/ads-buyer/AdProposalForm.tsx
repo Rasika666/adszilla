@@ -105,19 +105,15 @@ const AdProposalForm = () => {
 
 
             <div className="col-xl-6">
-
             </div>
 
             <div className="col-xl-12">
               <button className="button full-width blue  margin-top-25">Send the Proposal</button>
             </div>
 
-
             <div className="clearfix"></div>
 
             <SimpleFooter/>
-
-
           </div>
         </div>
       </Wrapper>

@@ -24,14 +24,14 @@ const HomeHeader = () => {
                         <div className="intro-search-field with-autocomplete">
                             <label className="field-title ripple-effect">Where?</label>
                             <div className="input-with-icon">
-                                <input id="autocomplete-input" type="text" placeholder="Online Job" />
+                                <input className="search-input" type="text" placeholder="Search the Target Area" />
                                 <i className="icon-material-outline-location-on"></i>
                             </div>
                         </div>
 
                         <div className="intro-search-field">
-                            <label className="field-title ripple-effect">What job you want?</label>
-                            <input id="intro-keywords" type="text" placeholder="Job Title or Keywords /" />
+                            <label className="field-title ripple-effect">What Category you want?</label>
+                            <input className="search-input" type="text" placeholder="Ad Title or Keywords /" />
                         </div>
 
                         <div className="intro-search-button">
@@ -46,15 +46,15 @@ const HomeHeader = () => {
                     <ul className="intro-stats margin-top-45 hide-under-992px">
                         <li>
                             <strong className="counter">1,586</strong>
-                            <span>Jobs Posted</span>
+                            <span>Ads Posted</span>
                         </li>
                         <li>
                             <strong className="counter">3,543</strong>
-                            <span>Tasks Posted</span>
+                            <span>Publish Ads</span>
                         </li>
                         <li>
                             <strong className="counter">1,232</strong>
-                            <span>Freelancers</span>
+                            <span>Active Ad Buyers</span>
                         </li>
                     </ul>
                 </div>

@@ -15,13 +15,13 @@ export interface AdPageCreatePayload {
   budget: AdsBudget,
 }
 
-export type AdAction<T> = {
+export type LocalAction<T> = {
   type: string,
   payload: T
 };
 
 
-export const adOverviewAction = (adOverview: AdsDetails): AdAction<AdPageCreatePayload> => {
+export const adOverviewAction = (adOverview: AdsDetails): LocalAction<AdPageCreatePayload> => {
 
   const payload: AdPageCreatePayload = {
     overview: adOverview,
@@ -36,14 +36,14 @@ export const adOverviewAction = (adOverview: AdsDetails): AdAction<AdPageCreateP
   };
 };
 
-export const setAdCurrentPageAction = (currentPage: AdCreatePage): AdAction<AdCreatePage> => {
+export const setAdCurrentPageAction = (currentPage: AdCreatePage): LocalAction<AdCreatePage> => {
   return {
     type: SET_CURRENT_PAGE,
     payload:currentPage
   };
 };
 
-export const adChannelAction = (channel: AdsMarketingChannel): AdAction<AdPageCreatePayload> => {
+export const adChannelAction = (channel: AdsMarketingChannel): LocalAction<AdPageCreatePayload> => {
   const payload: AdPageCreatePayload = {
     overview: {} as AdsDetails,
     channel: channel,
@@ -59,7 +59,7 @@ export const adChannelAction = (channel: AdsMarketingChannel): AdAction<AdPageCr
 };
 
 
-export const adBudgetAction = (budget: AdsBudget): AdAction<AdPageCreatePayload> => {
+export const adBudgetAction = (budget: AdsBudget): LocalAction<AdPageCreatePayload> => {
   const payload: AdPageCreatePayload = {
     overview: {} as AdsDetails,
     channel: {} as AdsMarketingChannel,
@@ -73,7 +73,7 @@ export const adBudgetAction = (budget: AdsBudget): AdAction<AdPageCreatePayload>
   };
 };
 
-export const adTargetAreaAction = (targetArea: AdsTargetArea): AdAction<AdPageCreatePayload> => {
+export const adTargetAreaAction = (targetArea: AdsTargetArea): LocalAction<AdPageCreatePayload> => {
   const payload: AdPageCreatePayload = {
     overview: {} as AdsDetails,
     channel: {} as AdsMarketingChannel,

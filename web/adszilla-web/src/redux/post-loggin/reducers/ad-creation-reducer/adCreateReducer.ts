@@ -8,7 +8,7 @@ import {
   PUBLISH_AD,
   SET_CURRENT_PAGE
 } from "../../actions/type";
-import {AdAction, AdPageCreatePayload} from "../../actions/ad-creation-actions/adCreateAction";
+import {LocalAction, AdPageCreatePayload} from "../../actions/ad-creation-actions/adCreateAction";
 import {AdCreatePage} from "../../../../domain/typeDef";
 import {createNewAdFromState} from "../../../../utils/adCreateUtil";
 
@@ -75,7 +75,7 @@ const initState: AdState = {
 }
 
 export const adCreateReducer = (state: AdState = initState,
-                                action: AdAction<AdPageCreatePayload>): AdState => {
+                                action: LocalAction<AdPageCreatePayload>): AdState => {
 
   switch (action.type) {
 
@@ -134,7 +134,7 @@ export const adCreateReducer = (state: AdState = initState,
 };
 
 export const adCreatePageTrackReducer = (state: AdState = initState,
-                                         action: AdAction<AdCreatePage>): AdState => {
+                                         action: LocalAction<AdCreatePage>): AdState => {
 
   switch (action.type) {
 

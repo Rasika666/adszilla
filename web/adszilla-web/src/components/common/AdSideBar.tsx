@@ -17,14 +17,14 @@ const AdSideBar: FC<AdSideBarProps> = ({ad, userType}) => {
               <>
                 <Link
                     to="/create-proposal"
-                    className="apply-now-button popup-with-zoom-anim ripple-effect button-sliding-icon">
+                    className="apply-now-button">
                   Create proposal
                   <i className="icon-material-outline-arrow-right-alt"></i>
                 </Link>
 
                 <Link
                     to="/update-status"
-                    className="apply-now-button popup-with-zoom-anim ripple-effect button-sliding-icon">
+                    className="apply-now-button">
                   Update status
                   <i className="icon-material-outline-arrow-right-alt"></i>
                 </Link>
@@ -32,12 +32,22 @@ const AdSideBar: FC<AdSideBarProps> = ({ad, userType}) => {
           )}
 
           {userType === UserType.AD_PROVIDER && (
-              <Link
-                  to="/ad-content"
-                  className="apply-now-button popup-with-zoom-anim ripple-effect button-sliding-icon">
-                Advertisement Content
-                <i className="icon-material-outline-arrow-right-alt"></i>
-              </Link>
+              <>
+                <Link
+                    to="/ad-content"
+                    className="apply-now-button popup-with-zoom-anim ripple-effect button-sliding-icon">
+                  Advertisement Content
+                  <i className="icon-material-outline-arrow-right-alt"></i>
+                </Link>
+
+                <Link
+                    to={`/view-proposal/${ad?.id}/all`}
+                    className="apply-now-button popup-with-zoom-anim ripple-effect button-sliding-icon">
+                  View All Proposals
+                  <i className="icon-material-outline-arrow-right-alt"></i>
+                </Link>
+              </>
+
           )}
 
 

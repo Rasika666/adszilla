@@ -1,8 +1,14 @@
 import React from 'react';
 import ProfileWrapper from "../../../components/layouts/ProfileWrapper";
 import ProfileProposal from "../../../components/proposal/ProfileProposal";
+import {CustomSelect, StyledOption,} from "../../../components/common/CustomSelect";
+import {useSelector} from "react-redux";
+import {RootState} from "../../../redux/post-loggin/reducers/rootReducer";
 
 const AdsProposal = () => {
+
+  const proposals = useSelector((state: RootState) => state.proposals.proposals);
+
   return (
       <ProfileWrapper>
         <div className="col-xl-12">
@@ -11,21 +17,18 @@ const AdsProposal = () => {
             <div className="headline">
               <h3><i className="icon-material-outline-supervisor-account"></i> 3 Proposals</h3>
               <div className="sort-by">
-                <select className="selectpicker hide-tick">
-                  <option>Highest First</option>
-                  <option>Lowest First</option>
-                  <option>Fastest First</option>
-                </select>
+                <CustomSelect defaultValue={10}>
+                  <StyledOption value={10}>Highest First</StyledOption>
+                  <StyledOption value={20}>Lowest First</StyledOption>
+                  <StyledOption value={30}>Latest First</StyledOption>
+                </CustomSelect>
               </div>
             </div>
 
             <div className="content">
               <ul className="dashboard-box-list">
 
-                <ProfileProposal/>
-                <ProfileProposal/>
-                <ProfileProposal/>
-
+                {proposals.map(proposal => <ProfileProposal key={proposal.id} proposal={proposal}/>)}
 
               </ul>
             </div>

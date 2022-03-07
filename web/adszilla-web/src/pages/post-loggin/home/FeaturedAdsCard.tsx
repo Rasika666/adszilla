@@ -25,7 +25,7 @@ const FeaturedAdsCard = ({ad} : FeaturedJobCardProps) => {
 			</div>
 		</div>
 
-		<span className="list-apply-button ripple-effect">Apply Now</span>
+		<span className="list-apply-button ripple-effect">View Now</span>
 </div>
 	</Link>
   );

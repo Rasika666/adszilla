@@ -14,7 +14,7 @@ const MyAdDashboard = () => {
         <div className="col-xl-12 center-block">
           <div className="listings-container margin-top-35">
 
-            {ads.map(ad => <AdsProfile userType={UserType.AD_PROVIDER} ad={ad}/>)}
+            {ads.map(ad => <AdsProfile key={ad.id} userType={UserType.AD_PROVIDER} ad={ad}/>)}
 
           </div>
         </div>

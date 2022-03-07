@@ -1,6 +1,7 @@
-import { FC } from 'react';
-import { Ad } from '../../domain/ad';
-import { UserType } from '../../utils/adCreateUtil';
+import {FC} from 'react';
+import {Ad} from '../../domain/ad';
+import {UserType} from '../../utils/adCreateUtil';
+import {Link} from "react-router-dom";
 
 export interface AdsProfileProps {
   userType: UserType,
@@ -9,11 +10,10 @@ export interface AdsProfileProps {
 
 const AdsProfile: FC<AdsProfileProps> = ({ userType, ad }) => {
 
-
+  const url = userType === UserType.AD_PROVIDER ? `/ad-details/${ad.id}/provider/profile` : `/ad-details/${ad.id}/buyer/profile`
 
   return (
-    <a href="single-job-page.html" className="job-listing">
-
+    <Link to={url} className="job-listing">
 
       <div className="job-listing-details">
         <div className="job-listing-company-logo">
@@ -41,7 +41,7 @@ const AdsProfile: FC<AdsProfileProps> = ({ userType, ad }) => {
           <li><i className="icon-material-outline-access-time"></i> 2 days ago</li>
         </ul>
       </div>
-    </a>
+    </Link>
   );
 };
 

@@ -51,19 +51,9 @@ const ProfileSideBarBuyer = () => {
                   <li className={isMyAdsActive ? 'active' : ''}>
                     <Link to="/ad-buyer-dashboard"><i className="icon-material-outline-dashboard"></i> My Ads</Link>
                   </li>
-                  <li>
-                    <Link to="/ad-buyer-proposal">
-                    <i className="icon-material-outline-question-answer"></i> Proposal <span
-                      className="nav-tag">3</span>
-                    </Link>
-                  </li>
                 </ul>
 
-                <ul data-submenu-title="Buy Ads">
-                  <li className={isCreateActive ? 'active' : ''}>
-                    <Link to="/dashboard2"><i className="icon-line-awesome-buysellads"></i> Buy</Link>
-                  </li>
-                </ul>
+
 
                 <ul data-submenu-title="Account">
                   <li>
