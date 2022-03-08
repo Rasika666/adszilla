@@ -20,8 +20,6 @@ const ProposalDetails: FC<ProposalDetails> = ({userType}) => {
         
           <div className="container grid-layout margin-top-35">
           <ProposalSummary userType={userType}/>
-
-
           </div>
 
 

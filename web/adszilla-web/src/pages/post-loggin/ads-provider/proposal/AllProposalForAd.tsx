@@ -52,7 +52,10 @@ const AllProposalForAd = () => {
                                 data-tippy-placement="top"><i className="icon-feather-eye"></i></Link> &nbsp;
 
                           <a href="#" className="button gray ripple-effect ico" title="Remove Bid"
-                             data-tippy-placement="top"><i className="icon-feather-trash-2"></i></a>
+                             data-tippy-placement="top"><i className="icon-feather-trash-2"></i></a> &nbsp;
+
+                          <a href="#" className="button gray ripple-effect ico" title="Remove Bid"
+                             data-tippy-placement="top"><i className="icon-line-awesome-thumbs-o-up"></i></a>
 
                         </td>
                       </tr>

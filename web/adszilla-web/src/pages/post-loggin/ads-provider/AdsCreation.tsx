@@ -9,9 +9,10 @@ import AdsBudget, {setAdBudget} from "./ads-creation-pages/AdsBudget";
 import AdsPublish from "./ads-creation-pages/AdsPublish";
 import AdsCreationFinish from "./ads-creation-pages/AdsCreationFinish";
 import {UserType} from "../../../utils/adCreateUtil";
+import AdBilling from "./ads-creation-pages/AdBilling";
 
 
-const steps = ['Overview', 'Marketing Channel', 'Target Area', 'Content', 'Budget', 'Publish'];
+const steps = ['Overview', 'Marketing Channel', 'Target Area', 'Content', 'Budget', 'Billing', 'Publish'];
 
 const AdsCreation = () => {
 
@@ -99,7 +100,8 @@ const AdsCreation = () => {
                   {activeStep === 2 && <AdsTargetArea ref={adsTargetAreaRef}/>}
                   {activeStep === 3 && <AdsContent/>}
                   {activeStep === 4 && <AdsBudget ref={adsBudgetRef}/>}
-                  {activeStep === 5 && <AdsPublish/>}
+                  {activeStep === 5 && <AdBilling/>}
+                  {activeStep === 6 && <AdsPublish/>}
                 </>
             )}
         </div>

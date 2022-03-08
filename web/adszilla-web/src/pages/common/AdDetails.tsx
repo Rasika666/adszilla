@@ -108,10 +108,17 @@ const AdDetails: FC<AdDetailsProps> = ({userType}) => {
                     </div>
 
                     <div className="col-xl-6">
-                      <h3 className="margin-bottom-25 margin-top-100">Ad Status</h3>
-                      <Stepper activeStep={activeStep}
-                               steps={steps}
-                               orientation={"vertical"}/>
+
+                      {userType === UserType.AD_PROVIDER && (
+                          <>
+                            <h3 className="margin-bottom-25 margin-top-100">Ad Status</h3>
+                            <Stepper activeStep={activeStep}
+                                     steps={steps}
+                                     orientation={"vertical"}/>
+                          </>
+                      )}
+
+
                     </div>
                   </div>
 
