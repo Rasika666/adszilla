@@ -51,8 +51,13 @@ const ProfileProposal: FC<ProfileProposalProps> = ({proposal, userType}) => {
               <div className="buttons-to-right always-visible margin-top-25 margin-bottom-0">
                 <a href="#small-dialog-1" className="popup-with-zoom-anim button ripple-effect"><i
                     className="icon-material-outline-check"></i> Accept Offer</a>
-                <a href="#small-dialog-2" className="popup-with-zoom-anim button dark ripple-effect"><i
-                    className="icon-feather-list"></i> View All Proposals for the Ad</a>
+
+                {userType === UserType.AD_PROVIDER && (
+                    <Link to={`/view-proposal/all/${ad?.id}`} className="popup-with-zoom-anim button dark ripple-effect"><i
+                        className="icon-feather-list"></i> View All Proposals for the Ad</Link>
+                )}
+
+
                 <a href="#" className="button gray ripple-effect ico" title="Remove Bid"
                    data-tippy-placement="top"><i className="icon-feather-trash-2"></i></a>
                 <Link to={urlViewProfile} className="button gray ripple-effect ico"
