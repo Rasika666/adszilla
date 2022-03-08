@@ -62,11 +62,17 @@ const ProfileProposal: FC<ProfileProposalProps> = ({proposal, userType}) => {
             <div className="buttons-to-right always-visible margin-top-25 margin-bottom-0">
 
               <div className="row">
-                <div className="col-md-6 margin-bottom-25">
-                  <Stepper activeStep={activeStep}
-                           steps={steps}
-                           orientation={"horizontal"}/>
-                </div>
+
+                {userType === UserType.AD_PROVIDER && (
+                    <div className="col-md-6 margin-bottom-25">
+                      <Stepper activeStep={activeStep}
+                               steps={steps}
+                               orientation={"horizontal"}/>
+                    </div>
+                )}
+
+
+
                 <div className="col-md-12 d-flex">
 
                   {userType === UserType.AD_PROVIDER && (

@@ -86,8 +86,10 @@ const AdsOverview = forwardRef<setAdOverview, {}>((props, ref) => {
                       value={adType}
                       onChange={(e) => setAdType(e.target.value)}
                   >
-                    <MenuItem value={"Banner"}>Banner</MenuItem>
-                    <MenuItem value={"video"}>Video</MenuItem>
+                    <MenuItem value={"1"}>Non-skippable in-stream video ads</MenuItem>
+                    <MenuItem value={"2"}>In-video overlay ads</MenuItem>
+                    <MenuItem value={"3"}>Community post</MenuItem>
+                    <MenuItem value={"4"}>affiliate marketing</MenuItem>
                   </Select>
                 </FormControl>
               </div>
