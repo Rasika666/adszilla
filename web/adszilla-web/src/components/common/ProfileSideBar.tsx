@@ -57,7 +57,7 @@ const ProfileSideBar = () => {
                     <Link to="/my-ads"><i className="icon-material-outline-dashboard"></i> My Ads</Link>
                   </li>
                   <li>
-                    <Link to="/view-proposal">
+                    <Link to="/view-proposal/provider">
                     <i className="icon-material-outline-question-answer"></i> Proposal <span
                       className="nav-tag">3</span>
                     </Link>

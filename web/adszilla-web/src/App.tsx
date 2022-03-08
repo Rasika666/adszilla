@@ -3,12 +3,13 @@ import Home from "./pages/post-loggin/Home";
 import DashboardV2 from "./pages/post-loggin/ads-buyer/DashboardV2";
 import AdsCreation from "./pages/post-loggin/ads-provider/AdsCreation";
 import MyAdDashboard from "./pages/post-loggin/ads-provider/MyAdDashboard";
-import AdsProposal from "./pages/post-loggin/ads-provider/AdsProposal";
 import AdDetails from "./pages/common/AdDetails";
 import AdBuyerDashboard from "./pages/post-loggin/ads-buyer/AdBuyerDashboard";
 import {UserType} from "./utils/adCreateUtil";
 import AdProposalForm from "./pages/post-loggin/ads-buyer/AdProposalForm";
-import ProposalDetails from "./pages/post-loggin/ads-provider/proposal/ProposalDetails";
+
+import AdsProposal from "./pages/common/AdsProposal";
+import ProposalDetails from "./pages/common/proposal/ProposalDetails";
 
 function App() {
   return (
@@ -18,8 +19,10 @@ function App() {
           <Route path={'/dashboard2'} element={<DashboardV2/>}/>
           <Route path={'/ads-creation'} element={<AdsCreation/>}/>
           <Route path={'/my-ads'} element={<MyAdDashboard/>}/>
-          <Route path={'/view-proposal'} element={<AdsProposal/>}/>
-          <Route path={'/view-proposal/:proposalId'} element={<ProposalDetails/>}/>
+          <Route path={'/view-proposal/provider'} element={<AdsProposal userType={UserType.AD_PROVIDER}/>}/>
+          <Route path={'/view-proposal/buyer'} element={<AdsProposal  userType={UserType.AD_BUYER}/>}/>
+          <Route path={'/view-proposal/:proposalId/provider'} element={<ProposalDetails userType={UserType.AD_PROVIDER}/>}/>
+          <Route path={'/view-proposal/:proposalId/buyer'} element={<ProposalDetails userType={UserType.AD_BUYER}/>}/>
           <Route path={'/create-proposal'} element={<AdProposalForm/>}/>
           <Route path={'/ad-details/:adId/provider/profile'} element={<AdDetails userType={UserType.AD_PROVIDER}/>}/>
           <Route path={'/ad-details/:adId/buyer/profile'} element={<AdDetails userType={UserType.AD_BUYER}/>}/>

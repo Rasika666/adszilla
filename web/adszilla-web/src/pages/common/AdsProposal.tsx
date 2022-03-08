@@ -1,16 +1,26 @@
-import React from 'react';
-import ProfileWrapper from "../../../components/layouts/ProfileWrapper";
-import ProfileProposal from "../../../components/proposal/ProfileProposal";
-import {CustomSelect, StyledOption,} from "../../../components/common/CustomSelect";
-import {useSelector} from "react-redux";
-import {RootState} from "../../../redux/post-loggin/reducers/rootReducer";
+import React, {FC} from 'react';
 
-const AdsProposal = () => {
+
+import {useSelector} from "react-redux";
+import {UserType} from "../../utils/adCreateUtil";
+import {RootState} from "../../redux/post-loggin/reducers/rootReducer";
+import ProfileWrapper from "../../components/layouts/ProfileWrapper";
+import {StyledOption, CustomSelect} from "../../components/common/CustomSelect";
+import ProfileProposal from "../../components/proposal/ProfileProposal";
+
+
+
+export interface AdsProposalProps{
+  userType: UserType,
+};
+
+
+const AdsProposal: FC<AdsProposalProps> = ({userType}) => {
 
   const proposals = useSelector((state: RootState) => state.proposals.proposals);
 
   return (
-      <ProfileWrapper>
+      <ProfileWrapper userType={userType}>
         <div className="col-xl-12">
           <div className="dashboard-box margin-top-0">
 
@@ -28,7 +38,7 @@ const AdsProposal = () => {
             <div className="content">
               <ul className="dashboard-box-list">
 
-                {proposals.map(proposal => <ProfileProposal key={proposal.id} proposal={proposal}/>)}
+                {proposals.map(proposal => <ProfileProposal key={proposal.id} proposal={proposal} userType={userType}/>)}
 
               </ul>
             </div>

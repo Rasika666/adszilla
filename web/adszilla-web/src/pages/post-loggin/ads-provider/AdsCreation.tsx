@@ -8,6 +8,7 @@ import AdsTargetArea, {setAdTargetArea} from "./ads-creation-pages/AdsTargetArea
 import AdsBudget, {setAdBudget} from "./ads-creation-pages/AdsBudget";
 import AdsPublish from "./ads-creation-pages/AdsPublish";
 import AdsCreationFinish from "./ads-creation-pages/AdsCreationFinish";
+import {UserType} from "../../../utils/adCreateUtil";
 
 
 const steps = ['Overview', 'Marketing Channel', 'Target Area', 'Content', 'Budget', 'Publish'];
@@ -75,7 +76,7 @@ const AdsCreation = () => {
 
 
   return (
-      <ProfileWrapper>
+      <ProfileWrapper userType={UserType.AD_PROVIDER}>
 
         <div className="col-xl-12">
 

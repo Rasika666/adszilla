@@ -51,6 +51,9 @@ const ProfileSideBarBuyer = () => {
                   <li className={isMyAdsActive ? 'active' : ''}>
                     <Link to="/ad-buyer-dashboard"><i className="icon-material-outline-dashboard"></i> My Ads</Link>
                   </li>
+                  <li className={isMyAdsActive ? 'active' : ''}>
+                    <Link to="/view-proposal/buyer"><i className="icon-line-awesome-list-alt"></i> My Proposals</Link>
+                  </li>
                 </ul>
 
 
