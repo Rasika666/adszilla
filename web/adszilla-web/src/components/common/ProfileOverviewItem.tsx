@@ -3,12 +3,12 @@ import React from 'react';
 
 interface ProfileOverviewItemProps {
   value: String,
-  discription: String
+  description: String
 }
 
-const ProfileOverviewItem = ({ value, discription }: ProfileOverviewItemProps) => {
+const ProfileOverviewItem = ({ value, description: description }: ProfileOverviewItemProps) => {
   return (
-    <div className="overview-item"><strong>{value}</strong><span>{discription}</span></div>
+    <div className="overview-item"><strong>{value}</strong><span>{description}</span></div>
   );
 };
 

@@ -3,7 +3,7 @@ import {UserType} from '../../utils/adCreateUtil';
 import AboutMe from './AboutMe';
 import BoxListItem from './BoxListItem';
 import Indicator from './Indicator';
-import PoposalSummaryCard from './PoposalSummaryCard';
+import ProposalSummaryCard from './ProposalSummaryCard';
 import ProfileOverviewItem from './ProfileOverviewItem';
 
 
@@ -16,16 +16,16 @@ const ProposalSummary = ({userType}: ProposalSummaryProps) => {
       <div className="container">
         <div className="row">
 
-          <PoposalSummaryCard
-              discription="Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment"/>
+          <ProposalSummaryCard
+              description="Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment"/>
 
           <div className="col-xl-4 col-lg-4">
             <div className="sidebar-container">
               <h3 className="margin-bottom-25">Youtube Info</h3>
               <div className="profile-overview">
-                <ProfileOverviewItem value="Games" discription="Channel Name"/>
-                <ProfileOverviewItem value="15000" discription="View count per Video"/>
-                <ProfileOverviewItem value="1458700" discription="Total subscribers"/>
+                <ProfileOverviewItem value="Games" description="Channel Name"/>
+                <ProfileOverviewItem value="15000" description="View count per Video"/>
+                <ProfileOverviewItem value="1458700" description="Total subscribers"/>
               </div>
               {userType === UserType.AD_PROVIDER ?
                   <div>
@@ -35,7 +35,7 @@ const ProposalSummary = ({userType}: ProposalSummaryProps) => {
                        className="apply-now-button popup-with-zoom-anim margin-bottom-50">Reject </a>
                   </div> :
                   <a href="#small-dialog" className="apply-now-button popup-with-zoom-anim margin-bottom-50">Delete
-                    poposal </a>
+                    proposal </a>
               }
             </div>
           </div>
@@ -45,7 +45,7 @@ const ProposalSummary = ({userType}: ProposalSummaryProps) => {
             <div className="row">
 
               <AboutMe
-                  discriptions={Array("Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment",
+                  description={Array("Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment",
                       "Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.")}/>
 
               <div className="col-xl-4 col-lg-4">
@@ -55,8 +55,8 @@ const ProposalSummary = ({userType}: ProposalSummaryProps) => {
                   <div className="sidebar-widget">
                     <div className="freelancer-indicators">
 
-                      <Indicator value="88%" discription="Job Success"></Indicator>
-                      <Indicator value="88%" discription="Job Success"></Indicator>
+                      <Indicator value="88%" description="Job Success"></Indicator>
+                      <Indicator value="88%" description="Job Success"></Indicator>
 
                     </div>
                   </div>
@@ -68,17 +68,17 @@ const ProposalSummary = ({userType}: ProposalSummaryProps) => {
                     <h3><i className="icon-material-outline-thumb-up"></i> Work History and Feedback</h3>
                   </div>
                   <ul className="boxed-list-ul">
-                    <BoxListItem title="Seyaln Bank Ad" discription="Reted as freelancer"
-                                 subDiscription="Excellent programmer - fully carried out my project in a very professional manner."
+                    <BoxListItem title="Seyaln Bank Ad" description="Rated as freelancer"
+                                 subDescription="Excellent programmer - fully carried out my project in a very professional manner."
                                  rating="5.0"/>
-                    <BoxListItem title="Seyaln Bank Ad" discription="Reted as freelancer"
-                                 subDiscription="Excellent programmer - fully carried out my project in a very professional manner."
+                    <BoxListItem title="Seyaln Bank Ad" description="Rated as freelancer"
+                                 subDescription="Excellent programmer - fully carried out my project in a very professional manner."
                                  rating="5.0"/>
-                    <BoxListItem title="Seyaln Bank Ad" discription="Reted as freelancer"
-                                 subDiscription="Excellent programmer - fully carried out my project in a very professional manner."
+                    <BoxListItem title="Seyaln Bank Ad" description="Rated as freelancer"
+                                 subDescription="Excellent programmer - fully carried out my project in a very professional manner."
                                  rating="5.0"/>
-                    <BoxListItem title="Seyaln Bank Ad" discription="Reted as freelancer"
-                                 subDiscription="Excellent programmer - fully carried out my project in a very professional manner."
+                    <BoxListItem title="Seyaln Bank Ad" description="Rated as freelancer"
+                                 subDescription="Excellent programmer - fully carried out my project in a very professional manner."
                                  rating="5.0"/>
                   </ul>
 

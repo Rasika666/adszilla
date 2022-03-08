@@ -3,15 +3,15 @@ import React from 'react';
 
 interface IndicatorProps {
   value: String,
-  discription: String
+  description: String
 }
 
-const Indicator = ({ value, discription }: IndicatorProps) => {
+const Indicator = ({ value, description: description }: IndicatorProps) => {
   return (
     <div className="indicator">
       <strong>{value}</strong>
       <div className="indicator-bar" data-indicator-percentage="88"><span></span></div>
-      <span>{discription}</span>
+      <span>{description}</span>
     </div>
   );
 };
