@@ -3,6 +3,7 @@ import Wrapper from "../../../components/layouts/Wrapper";
 import {UserType} from "../../../utils/adCreateUtil";
 import ProfileHeader from "../../../components/common/ProfileHeader";
 import SimpleFooter from "../../../components/common/SimpleFooter";
+import ProposalSummary from '../../../components/common/ProposalSummary';
 
 
 interface ProposalDetails {
@@ -16,9 +17,9 @@ const ProposalDetails: FC<ProposalDetails> = ({userType}) => {
         <div className="full-page-content-container" data-simplebar>
 
           <ProfileHeader/>
-
+        
           <div className="container grid-layout margin-top-35">
-
+          <ProposalSummary userType={userType}/>
 
 
           </div>
