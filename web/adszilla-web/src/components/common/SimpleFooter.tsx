@@ -2,7 +2,7 @@ import React from 'react';
 
 const SimpleFooter = () => {
   return (
-      <div className="small-footer margin-top-15">
+      <div className="small-footer margin-top-15" style={{padding: "25px 100px"}}>
         <div className="small-footer-copyrights">
           © 2022 <strong>AdsZilla</strong>. All Rights Reserved.
         </div>

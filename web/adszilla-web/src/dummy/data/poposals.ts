@@ -45,7 +45,7 @@ export const proposal = [
   } as Proposal,
   {
     id: "prop_0003",
-    adId: "ad_00001",
+    adId: "ad_00002",
     userId: "user_0001",
     proposedBudget: {
       budget: 25000.00

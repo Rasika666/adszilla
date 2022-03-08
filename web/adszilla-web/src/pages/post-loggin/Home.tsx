@@ -7,6 +7,7 @@ import {RootState} from '../../redux/post-loggin/reducers/rootReducer';
 import HomeHeader from './home/HomeHeader';
 import JobCategoryCard from './home/JobCategoryCard';
 import FeaturedAdsCard from "./home/FeaturedAdsCard";
+import SimpleFooter from "../../components/common/SimpleFooter";
 
 const Home = () => {
 
@@ -22,7 +23,7 @@ const Home = () => {
                 <div className="col-xl-12">
 
                   <div className="section-headline centered margin-bottom-15">
-                    <h3>Popular Job Categories</h3>
+                    <h3>Popular Ads Categories</h3>
                   </div>
                   <div className="categories-container">
                     <JobCategoryCard title="Web & Software Dev"
@@ -71,8 +72,12 @@ const Home = () => {
                 </div>
               </div>
             </div>
+
+
           </div>
         </div>
+        <div className="clearfix"></div>
+        <SimpleFooter/>
       </Wrapper>
   );
 };
