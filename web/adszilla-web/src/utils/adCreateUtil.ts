@@ -21,3 +21,8 @@ export enum UserType {
   AD_BUYER,
   ADMIN,
 }
+
+export enum FormState {
+  EDIT,
+  VIEW,
+}

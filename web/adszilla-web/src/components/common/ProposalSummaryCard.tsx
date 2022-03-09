@@ -9,7 +9,7 @@ const ProposalSummaryCard = ({ description: description }: ProposalSummaryCardPr
   return (
     <div className="col-xl-8 col-lg-8 content-right-offset">
       <div className="single-page-section">
-        <h2 className="margin-bottom-25">Poposal Summary</h2>
+        <h2 className="margin-bottom-25">Proposal Summary</h2>
         <p>{description}</p>
         <br />
         <h3 className="margin-bottom-25">Budget</h3>

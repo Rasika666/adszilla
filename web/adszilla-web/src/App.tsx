@@ -11,6 +11,9 @@ import AdProposalForm from "./pages/post-loggin/ads-buyer/AdProposalForm";
 import AdsProposal from "./pages/common/AdsProposal";
 import ProposalDetails from "./pages/common/proposal/ProposalDetails";
 import AllProposalForAd from "./pages/post-loggin/ads-provider/proposal/AllProposalForAd";
+import ProfileView from "./components/common/ProfileView";
+import ProfileDetails from "./pages/common/profile/ProfileDetails";
+import ProfileEdit from "./pages/common/profile/ProfileEdit";
 
 function App() {
   return (
@@ -29,6 +32,9 @@ function App() {
           <Route path={'/ad-details/:adId/provider/profile'} element={<AdDetails userType={UserType.AD_PROVIDER}/>}/>
           <Route path={'/ad-details/:adId/buyer/profile'} element={<AdDetails userType={UserType.AD_BUYER}/>}/>
           <Route path={'/ad-buyer-dashboard'} element={<AdBuyerDashboard/>}/>
+          <Route path={'/buyer-profile'} element={<ProfileDetails userType={UserType.AD_PROVIDER}/>}/>
+          <Route path={'/edit-profile'} element={<ProfileEdit/>}/>
+          <Route path={'/provider-profile'} element={<ProfileDetails userType={UserType.AD_BUYER}/>}/>
         </Routes>
       </BrowserRouter>
   );
