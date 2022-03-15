@@ -68,6 +68,11 @@ const AdSideBar: FC<AdSideBarProps> = ({ad, userType}) => {
                     <h5>{ad?.overview?.adType}</h5>
                   </li>
                   <li>
+                    <i className="icon-line-awesome-eye"></i>
+                    <span>Expected View Count</span>
+                    <h5>1M</h5>
+                  </li>
+                  <li>
                     <i className="icon-material-outline-local-atm"></i>
                     <span>Budget</span>
                     <h5>youtube: {ad?.budget?.youtubeBudget}</h5>

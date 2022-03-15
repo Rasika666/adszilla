@@ -166,7 +166,7 @@ const AdBilling = () => {
                 <div className="boxed-widget-inner">
                   <ul>
                     <li>Standard Plan <span>$49.00</span></li>
-                    <li>VAT (20%) <span>$9.80</span></li>
+                    <li>VAT (12%) <span>$9.80</span></li>
                     <li className="total-costs">Final Price <span>$58.80</span></li>
                   </ul>
                 </div>

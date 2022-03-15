@@ -34,7 +34,11 @@ const ProfileProposal: FC<ProfileProposalProps> = ({proposal, userType}) => {
           <div className="freelancer-overview-inner">
 
             <div className="freelancer-avatar">
-              <div className="verified-badge"></div>
+
+              {proposal?.id === "prop_0000" && (
+                  <div className="verified-badge"></div>
+              )}
+
               <a href="#"><img src="images/user-avatar-big-02.jpg" alt=""/></a>
             </div>
 
