@@ -4,12 +4,12 @@ export const ADS = [
     {
         id: "ad_00000",
         overview: {
-            adTitle: "testAdd1",
-            adDescription: "testAdd1 Desc",
-            adCategory: "testCategoty",
+            adTitle: "Dialog Home 4G",
+            adDescription: "Future on your hands",
+            adCategory: "technology",
             adTags: [
-                { tag: "testAd" },
-                { tag: "tag2" }
+                { tag: "dialog" },
+                { tag: "4G" }
             ],
             adType: "video",
         },
@@ -21,7 +21,7 @@ export const ADS = [
         },
 
         budget: {
-            youtubeBudget: 100000,
+            youtubeBudget: 120000,
         },
 
         targetArea: {
@@ -33,11 +33,11 @@ export const ADS = [
     {
         id: "ad_00002",
         overview: {
-            adTitle: "testAdd2",
-            adDescription: "testAdd2 Desc",
-            adCategory: "testCategoty",
+            adTitle: "Seylan Wishwa",
+            adDescription: "Flexible interest rates",
+            adCategory: "social",
             adTags: [
-                { tag: "testAd" },
+                { tag: "savings" },
             ],
             adType: "video",
         },
@@ -54,6 +54,118 @@ export const ADS = [
 
         targetArea: {
             nearAreas: ["Ragama"]
+        },
+
+    } as Ad,
+
+    {
+        id: "ad_00003",
+        overview: {
+            adTitle: "samsung S22",
+            adDescription: "Touch th future",
+            adCategory: "social",
+            adTags: [
+                { tag: "phone" },
+            ],
+            adType: "video",
+        },
+
+        channel: {
+            socialMediaChannel: {
+                youtube: true
+            },
+        },
+
+        budget: {
+            youtubeBudget: 100000,
+        },
+
+        targetArea: {
+            nearAreas: ["Sri lanka"]
+        },
+
+    } as Ad,
+
+    {
+        id: "ad_00004",
+        overview: {
+            adTitle: "Ada derana",
+            adDescription: "News first",
+            adCategory: "social",
+            adTags: [
+                { tag: "news" },
+            ],
+            adType: "video",
+        },
+
+        channel: {
+            socialMediaChannel: {
+                youtube: true
+            },
+        },
+
+        budget: {
+            youtubeBudget: 100000,
+        },
+
+        targetArea: {
+            nearAreas: ["Sri lanka"]
+        },
+
+    } as Ad,
+
+    {
+        id: "ad_00005",
+        overview: {
+            adTitle: "Build your dream house",
+            adDescription: "Lowest rates",
+            adCategory: "social",
+            adTags: [
+                { tag: "loan" },
+            ],
+            adType: "video",
+        },
+
+        channel: {
+            socialMediaChannel: {
+                youtube: true
+            },
+        },
+
+        budget: {
+            youtubeBudget: 100000,
+        },
+
+        targetArea: {
+            nearAreas: ["Sri lanka"]
+        },
+
+    } as Ad,
+
+    {
+        id: "ad_00006",
+        overview: {
+            adTitle: "Buy your dream car",
+            adDescription: "Lowest rates",
+            adCategory: "social",
+            adTags: [
+                { tag: "finance" },
+            ],
+            adType: "video",
+        },
+
+        channel: {
+            socialMediaChannel: {
+                youtube: true
+            },
+        },
+
+        budget: {
+            youtubeBudget: 100000,
+        },
+
+        targetArea: {
+            nearAreas: ["Sri lanka"]
         },
 
     } as Ad,

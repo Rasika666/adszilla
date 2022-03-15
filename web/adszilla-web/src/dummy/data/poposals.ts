@@ -6,18 +6,17 @@ export const proposal = [
     adId: "ad_00000",
     userId: "user_0000",
     proposedBudget: {
-      budget: 100000.00
+      budget: 500000.00
     },
     youtubeInfo: {
-      channelName: "channel1",
+      channelName: "Lakai Sikai",
       channelUrl: "https://youtube.com",
       channelCategory: "Game",
       viewRatesPerDay: 10,
-      totalSubscribers: 25000
+      totalSubscribers: 700000
     },
     AdditionInfo: {
-      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. " +
-          "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+      description: "We will crete creative add for you and average view count is 5 laks"
     },
     createDate: new Date('2022-01-25'),
     deliveryDays: 8,
@@ -30,11 +29,11 @@ export const proposal = [
       budget: 105070.00
     },
     youtubeInfo: {
-      channelName: "channel2",
+      channelName: "gaming sadu",
       channelUrl: "https://youtube.com",
       channelCategory: "Fashion",
-      viewRatesPerDay: 100,
-      totalSubscribers: 25000000
+      viewRatesPerDay: 100000,
+      totalSubscribers: 200000
     },
     AdditionInfo: {
       description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. " +
