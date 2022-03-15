@@ -17,7 +17,7 @@ const AdsProfile: FC<AdsProfileProps> = ({ userType, ad }) => {
 
       <div className="job-listing-details">
         <div className="job-listing-company-logo">
-          <img src="images/company-logo-01.png" alt="" />
+          <img src="https://source.unsplash.com/random/" alt="" />
         </div>
 
 
@@ -37,7 +37,7 @@ const AdsProfile: FC<AdsProfileProps> = ({ userType, ad }) => {
             {ad?.targetArea?.nearAreas?.map(area => area)}
           </li>
 
-          <li><i className="icon-material-outline-account-balance-wallet"></i> $35000-$38000</li>
+          <li><i className="icon-material-outline-account-balance-wallet"></i>Rs: {ad?.budget?.youtubeBudget}</li>
           <li><i className="icon-material-outline-access-time"></i> 2 days ago</li>
         </ul>
       </div>

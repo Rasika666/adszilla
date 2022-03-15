@@ -60,7 +60,7 @@ const Home = () => {
                 <div className="col-xl-12">
                   <div className="section-headline margin-top-0 margin-bottom-35">
                     <h3>Featured Ads</h3>
-                    <Link to="/ad-details/:" className="headline-link">Browse All Ads</Link>
+                    <Link to="/dashboard2" className="headline-link">Browse All Ads</Link>
                   </div>
                   <div className="listings-container compact-list-layout margin-top-35">
                     {

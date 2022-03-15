@@ -24,7 +24,7 @@ const HomeHeader = () => {
                         <div className="intro-search-field with-autocomplete">
                             <label className="field-title ripple-effect">Where?</label>
                             <div className="input-with-icon">
-                                <input className="search-input" type="text" placeholder="Search the Target Area" />
+                                <input className="search-input" type="text" placeholder="Search On Channel" />
                                 <i className="icon-material-outline-location-on"></i>
                             </div>
                         </div>

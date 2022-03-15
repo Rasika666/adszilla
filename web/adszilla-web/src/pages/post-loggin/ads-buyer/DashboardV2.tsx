@@ -22,7 +22,7 @@ const DashboardV2 = () => {
             <div className="listings-container grid-layout margin-top-35">
             {
                     ads.map(ad =>
-                      <AdsV2/>
+                      <AdsV2 ad={ad}/>
                       )
                   }
             </div>

@@ -17,7 +17,7 @@ const HeaderV2 = () => {
               <ul id="responsive">
 
                 <li><Link to="/">Home</Link></li>
-                <li><Link to="/ads-creation">Ad Producer</Link></li>
+                <li><Link to="/my-ads">Ad Producer</Link></li>
                 <li><Link to="/ad-buyer-dashboard">Ad Buyer</Link></li>
 
               </ul>

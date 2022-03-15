@@ -1,6 +1,24 @@
 import React from 'react';
+import {FormControl, Slider} from "@mui/material";
 
 const FilterSideBarV2 = () => {
+
+  function valuetext(value: number) {
+    return `Rs: ${value}`;
+  }
+
+  const marks = [
+    {
+      value: 10,
+      label: 'Rs: 10K',
+    },
+    {
+      value: 1000000,
+      label: 'Rs: 1000K',
+    },
+  ];
+
+
   return (
       <div className="full-page-sidebar">
         <div className="full-page-sidebar-inner" data-simplebar>
@@ -8,10 +26,10 @@ const FilterSideBarV2 = () => {
 
 
             <div className="sidebar-widget">
-              <h3>Location</h3>
+              <h3>Channel</h3>
               <div className="input-with-icon">
                 <div id="autocomplete-container">
-                  <input id="autocomplete-input" type="text" placeholder="Location"/>
+                  <input id="autocomplete-input" type="text" placeholder="Search on Channel"/>
                 </div>
                 <i className="icon-material-outline-location-on"></i>
               </div>
@@ -19,10 +37,10 @@ const FilterSideBarV2 = () => {
 
 
             <div className="sidebar-widget">
-              <h3>Keywords</h3>
+              <h3>Category</h3>
               <div className="keywords-container">
                 <div className="keyword-input-container">
-                  <input type="text" className="keyword-input" placeholder="e.g. job title"/>
+                  <input type="text" className="keyword-input" placeholder="Search on Category"/>
                   <button className="keyword-input-button ripple-effect"><i
                       className="icon-material-outline-add"></i></button>
                 </div>
@@ -32,8 +50,8 @@ const FilterSideBarV2 = () => {
             </div>
 
             <div className="sidebar-widget">
-              <h3>Category</h3>
-              <select className="selectpicker default" multiple data-selected-text-format="count" data-size="7"
+              <h3>Search on Category</h3>
+              <select className="default" multiple data-selected-text-format="count" data-size="7"
                       title="All Categories">
                 <option>Admin Support</option>
                 <option>Customer Service</option>
@@ -48,46 +66,24 @@ const FilterSideBarV2 = () => {
               </select>
             </div>
 
-
-            <div className="sidebar-widget">
-              <h3>Job Type</h3>
-
-              <div className="switches-list">
-                <div className="switch-container">
-                  <label className="switch"><input type="checkbox"/><span
-                      className="switch-button"></span> Freelance</label>
-                </div>
-
-                <div className="switch-container">
-                  <label className="switch"><input type="checkbox"/><span className="switch-button"></span> Full
-                    Time</label>
-                </div>
-
-                <div className="switch-container">
-                  <label className="switch"><input type="checkbox"/><span className="switch-button"></span> Part
-                    Time</label>
-                </div>
-
-                <div className="switch-container">
-                  <label className="switch"><input type="checkbox"/><span
-                      className="switch-button"></span> Internship</label>
-                </div>
-                <div className="switch-container">
-                  <label className="switch"><input type="checkbox"/><span
-                      className="switch-button"></span> Temporary</label>
-                </div>
-              </div>
-
+            <div className="submit-field">
+              <FormControl fullWidth>
+                <h3>Search on Budget</h3>
+                <Slider
+                    getAriaLabel={() => 'Temperature'}
+                    orientation="horizontal"
+                    getAriaValueText={valuetext}
+                    min={10000}
+                    max={1000000}
+                    valueLabelDisplay="on"
+                    marks={marks}
+                />
+              </FormControl>
             </div>
 
-            <div className="sidebar-widget">
-              <h3>Salary</h3>
-              <div className="margin-top-55"></div>
 
 
-              <input className="range-slider" type="text" value="" data-slider-currency="$" data-slider-min="1500"
-                     data-slider-max="15000" data-slider-step="100" data-slider-value="[1500,15000]"/>
-            </div>
+
 
             <div className="sidebar-widget">
               <h3>Tags</h3>
